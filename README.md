@@ -18,6 +18,10 @@ Fortalecer las habilidades necesarias para:
 
 ## Flujo de trabajo con Git
 
+Para una explicacion completa del proceso de entrega, revise:
+
+[FLUJO-DE-ENTREGA.md](FLUJO-DE-ENTREGA.md)
+
 El repositorio tiene dos ramas principales protegidas:
 
 - `main`: rama estable. No se trabaja directamente sobre esta rama.

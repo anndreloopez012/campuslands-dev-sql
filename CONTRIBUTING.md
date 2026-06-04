@@ -61,15 +61,20 @@ Las resoluciones deben ir en:
 
 ```text
 resoluciones/
-└── numero-ejercicio-apellido-nombre/
+└── apellido-nombre/
+    └── ejercicio-XX/
 ```
 
 Ejemplo:
 
 ```text
 resoluciones/
-└── 01-cinemax-sqlite-perez-ana/
+└── perez-ana/
+    └── ejercicio-01/
 ```
+
+No deje archivos sueltos directamente dentro de `resoluciones/`.
+No modifique resoluciones de otros estudiantes.
 
 ## Commits
 
