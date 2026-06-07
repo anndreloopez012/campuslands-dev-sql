@@ -21,3 +21,13 @@
 
 -- 10. Contar cuantas funciones existen para cada sala utilizando GROUP BY.
 
+SELECT * FROM Peliculas;
+SELECT TITULO, DURACION FROM Peliculas;
+SELECT * FROM Peliculas WHERE DURACION > 120;
+SELECT * FROM Peliculas ORDER BY TITULO;
+SELECT * FROM Peliculas ORDER BY DURACION DESC LIMIT 3;
+SELECT COUNT(*) AS Total_Peliculas FROM Peliculas;
+SELECT AVG(DURACION) AS Duracion_Promedio FROM Peliculas;
+SELECT * FROM Peliculas WHERE DURACION = (SELECT MAX(DURACION) FROM Peliculas);
+SELECT * FROM Funcion WHERE FECHA > '2026-06-10';
+SELECT ID_SALA, COUNT(*) AS Total_Funciones FROM Funcion GROUP BY ID_SALA;  
