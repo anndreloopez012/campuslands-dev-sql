@@ -1,9 +1,8 @@
-.DS_Store
+# Bases de datos SQLite
 *.db
 *.sqlite
 *.sqlite3
-*.log
-tmp/
-temp/
-node_modules/
 
+# Carpetas de sistema o temporales
+.DS_Store
+Thumbs.db
