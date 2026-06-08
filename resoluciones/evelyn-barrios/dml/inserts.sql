@@ -1,7 +1,7 @@
 -- Activar soporte de llaves foráneas para esta sesión de inserciones
 PRAGMA foreign_keys = ON;
 
-
+-- =========================================================================
 -- SECCIÓN 1: INSERCIONES VÁLIDAS (Mínimo: 5 películas, 5 salas, 8 funciones, 10 boletos)
 -- =========================================================================
 
@@ -21,7 +21,7 @@ INSERT INTO salas (tipo, capacidad) VALUES
 ('VIP', 40),
 ('Macro XE', 120);
 
--- 3. Insertar Funciones (Precios y formatos de fecha )
+-- 3. Insertar Funciones (Precios y formatos de fecha YYYY-MM-DD y HH:MM)
 INSERT INTO funciones (id_pelicula, id_sala, horario, precio, fecha) VALUES 
 (1, 1, '14:30', 12.50, '2026-06-10'),
 (1, 3, '18:00', 18.00, '2026-06-10'),
@@ -32,7 +32,7 @@ INSERT INTO funciones (id_pelicula, id_sala, horario, precio, fecha) VALUES
 (5, 5, '16:00', 14.00, '2026-06-12'),
 (2, 3, '23:00', 20.00, '2026-06-12');
 
--- 4. Insertar Boletos Vendidos 10 boletos usando códigos únicos y asientos
+-- 4. Insertar Boletos Vendidos (10 boletos usando códigos únicos y asientos)
 INSERT INTO boletos_vendidos (numero_serie, id_funcion, fecha_compra, numero_asiento) VALUES 
 ('BOL-0001', 1, '2026-06-07 10:15:00', 'A1'),
 ('BOL-0002', 1, '2026-06-07 10:20:00', 'A2'),
@@ -46,24 +46,16 @@ INSERT INTO boletos_vendidos (numero_serie, id_funcion, fecha_compra, numero_asi
 ('BOL-0010', 8, '2026-06-09 19:40:00', 'M12');
 
 
--- SECCIÓN 2: CASOS DE PRUEBA QUE GENERAN ERROR COMENTADOS
+-- =========================================================================
+-- SECCIÓN 2: CASOS DE PRUEBA QUE GENERAN ERROR comentados
 -- =========================================================================
 
--- Caso de Error 1: Violación de Llave Foránea
--- crear función para una película con ID 99 que no existe en la tabla de películas.
--- INSERT INTO funciones (id_pelicula, id_sala, horario, precio, fecha) VALUES 
--- (99, 1, '19:00', 12.00, '2026-06-15');
--- lanza: FOREIGN KEY constraint failed
+-- Caso de Error 1: Violación de Llave Foránea (FOREIGN KEY)
+-- crear una función para una película con ID 99 que no existe en la tabla de películas.
+-- lanzo: "FOREIGN KEY constraint failed"
+--INSERT INTO funciones (id_pelicula, id_sala, horario, precio, fecha) VALUES (99, 1, '19:00', 12.00, '2026-06-15');
 
-
--- Caso de Error 2: Violación de Restricción ÚNICA 
--- registrar un boleto con el número de serie BOL-0001 que ya fue insertado arriba.
--- INSERT INTO boletos_vendidos (numero_serie, id_funcion, fecha_compra, numero_asiento) VALUES
--- ('BOL-0001', 2, '2026-06-07 12:00:00', 'B5');
-
-
--- Caso de Error 3: Violación de Restricción de Validación CHECK
--- insertar una película con duración negativa
--- INSERT INTO peliculas (titulo, duracion, director, genero) VALUES 
--- ('Flash', -10, 'Andy Muschietti', 'Acción');
--- lanza: CHECK constraint failed: duracion > 0
+-- Caso de Error 2: Violación de Restricción ÚNICA (UNIQUE)
+-- registrar un boleto con el número de serie 'BOL-0001' que ya fue insertado arriba.
+-- lanzo: "UNIQUE constraint failed: boletos_vendidos.numero_serie"
+-- INSERT INTO boletos_vendidos (numero_serie, id_funcion, fecha_compra, numero_asiento) VALUES ('BOL-0001', 2, '2026-06-07 12:00:00', 'B5');
