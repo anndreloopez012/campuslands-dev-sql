@@ -46,24 +46,24 @@ INSERT INTO boletos_vendidos (numero_serie, id_funcion, fecha_compra, numero_asi
 ('BOL-0010', 8, '2026-06-09 19:40:00', 'M12');
 
 
--- SECCIÓN 2: CASOS DE PRUEBA QUE GENERAN ERROR 
+-- SECCIÓN 2: CASOS DE PRUEBA QUE GENERAN ERROR COMENTADOS
 -- =========================================================================
 
 -- Caso de Error 1: Violación de Llave Foránea
 -- crear función para una película con ID 99 que no existe en la tabla de películas.
-INSERT INTO funciones (id_pelicula, id_sala, horario, precio, fecha) VALUES 
-(99, 1, '19:00', 12.00, '2026-06-15');
+-- INSERT INTO funciones (id_pelicula, id_sala, horario, precio, fecha) VALUES 
+-- (99, 1, '19:00', 12.00, '2026-06-15');
 -- lanza: FOREIGN KEY constraint failed
 
 
 -- Caso de Error 2: Violación de Restricción ÚNICA 
 -- registrar un boleto con el número de serie BOL-0001 que ya fue insertado arriba.
-INSERT INTO boletos_vendidos (numero_serie, id_funcion, fecha_compra, numero_asiento) VALUES
-('BOL-0001', 2, '2026-06-07 12:00:00', 'B5');
+-- INSERT INTO boletos_vendidos (numero_serie, id_funcion, fecha_compra, numero_asiento) VALUES
+-- ('BOL-0001', 2, '2026-06-07 12:00:00', 'B5');
 
 
 -- Caso de Error 3: Violación de Restricción de Validación CHECK
 -- insertar una película con duración negativa
-INSERT INTO peliculas (titulo, duracion, director, genero) VALUES 
-('Flash', -10, 'Andy Muschietti', 'Acción');
+-- INSERT INTO peliculas (titulo, duracion, director, genero) VALUES 
+-- ('Flash', -10, 'Andy Muschietti', 'Acción');
 -- lanza: CHECK constraint failed: duracion > 0
