@@ -1,0 +1,4 @@
+id_consulta,paciente,dpi,medico,especialidad,tratamientos,costos,fecha_consulta
+1,Rosa Lima,DPI-200,Dr. Perez,Dental,Limpieza|Radiografia,250|180,2026-06-03
+2,Mario Leon,DPI-201,Dra. Gomez,General,Consulta|Laboratorio,200|320,2026-06-03
+3,Rosa Lima,DPI-200,Dr. Perez,Dental,Calza|Limpieza,400|250,2026-06-10

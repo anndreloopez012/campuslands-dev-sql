@@ -1,0 +1,4 @@
+id_prestamo,libro,autores,generos,usuario,prestamos,fechas_devolucion
+1,Bases de Datos I,A. Torres|M. Ruiz,SQL|Academico,Juan Perez,Prestamo 1,2026-06-12
+2,Python Practico,L. Cano,Programacion|Backend,Maria Lopez,Prestamo 2,2026-06-15
+3,Bases de Datos I,A. Torres|M. Ruiz,SQL|Academico,Ana Diaz,Prestamo 3,2026-06-20
