@@ -20,7 +20,7 @@ CREATE TABLE Salas (
 );
 
 CREATE TABLE Funciones (
-    id_funcion INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_funcions INTEGER PRIMARY KEY AUTOINCREMENT,
     id_pelicula INTEGER NOT NULL,
     id_sala INTEGER NOT NULL,
     hora DATE NOT NULL,
@@ -31,10 +31,10 @@ CREATE TABLE Funciones (
 
 CREATE TABLE Boletos (
     id_boleto INTEGER PRIMARY KEY AUTOINCREMENT,
-    id_funcion INTEGER NOT NULL,
+    id_funcions INTEGER NOT NULL,
     asiento TEXT NOT NULL,
     precio REAL NOT NULL CHECK (precio > 0),
     
-    FOREIGN KEY (id_funcion) REFERENCES Funciones(id_funcion)
+    FOREIGN KEY (id_funcions) REFERENCES Funciones(id_funcions)
 );
 
