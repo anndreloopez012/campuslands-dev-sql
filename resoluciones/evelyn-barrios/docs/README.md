@@ -75,4 +75,4 @@ Se realizaron pruebas de estrés para validar que la base de datos rechaza datos
    - *Resultado:* `Runtime error: CHECK constraint failed: 
 
 ---
-**Nota:** Para ejecutar este proyecto, asegúrese de tener instalado SQLite3 y ejecute los scripts en el orden: `schema.sql` -> `inserts.sql` -> `consultas.sql`.
+**Nota:** Para ejecutar este proyecto, asegúrese de tener instalado SQLite3 y ejecute los scripts en el orden: `schema.sql` -> `inserts.sql` -> `consultas.sql`.  // 
