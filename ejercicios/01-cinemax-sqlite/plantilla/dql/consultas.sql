@@ -1,23 +1,29 @@
 .headers on
 .mode column
 
--- 1. Mostrar todas las peliculas registradas con todos sus atributos.
+-- Ejercicio 01: CineMax SQLite
+-- Escriba aqui las consultas obligatorias del README.
 
--- 2. Mostrar unicamente el nombre y la duracion de todas las peliculas.
+-- 1. Listar todos los registros principales.
 
--- 3. Mostrar las peliculas cuya duracion sea superior a 120 minutos.
+-- 2. Mostrar solo dos columnas relevantes.
 
--- 4. Mostrar las peliculas ordenadas alfabeticamente por nombre.
+-- 3. Filtrar por condicion numerica o de fecha.
 
--- 5. Mostrar las tres peliculas con mayor duracion.
+-- 4. Ordenar resultados.
 
--- 6. Contar cuantas peliculas existen registradas.
+-- 5. Mostrar top 5 por una metrica.
 
--- 7. Mostrar la duracion promedio de las peliculas.
+-- 6. Contar registros totales.
 
--- 8. Mostrar la pelicula con la mayor duracion.
+-- 7. Calcular promedio, minimo o maximo.
 
--- 9. Mostrar todas las funciones programadas despues de una fecha especifica definida por usted.
+-- 8. Agrupar con GROUP BY.
 
--- 10. Contar cuantas funciones existen para cada sala utilizando GROUP BY.
+-- 9. Relacionar minimo dos tablas con JOIN.
 
+-- 10. Usar WHERE, ORDER BY y LIMIT.
+
+-- 11. Crear reporte con alias.
+
+-- 12. Consulta para decision del negocio.
