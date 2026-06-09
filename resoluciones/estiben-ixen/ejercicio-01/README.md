@@ -23,6 +23,13 @@ Disfruta tus mejores momentos con nosotros, comparte en familia.
 
 ![diagrama-E-R](../ejercicio-01/diagrama/Cinemax.png)
 
+# Tecnologias y herramientas utilizadas.
+
+```
+    Visual Studio Code
+    github
+    SQLite
+´´´
 # autor
 
 ```
