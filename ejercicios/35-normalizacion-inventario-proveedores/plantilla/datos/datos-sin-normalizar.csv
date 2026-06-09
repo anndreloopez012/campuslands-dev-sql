@@ -1,0 +1,4 @@
+id_movimiento,producto,categoria,proveedor,telefono_proveedor,entradas,salidas,bodega
+1,Laptop X1,Computadoras,TecnoMayor,5551-1000,10,2,Bodega Norte
+2,Mouse Pro,Accesorios,TecnoMayor,5551-1000,50,12,Bodega Norte
+3,Silla Gamer,Mobiliario,Muebles GT,5551-2000,8,1,Bodega Sur

@@ -1,0 +1,4 @@
+id_contrato,empleado,cargo,departamento,jefe,beneficios,salario,fecha_contrato
+1,Marco Luna,Developer Jr,Tecnologia,Ingrid Paz,Seguro|Bono,6500,2026-01-15
+2,Claudia Soto,Analista,Datos,Ingrid Paz,Seguro|Parqueo,7200,2026-02-01
+3,Marco Luna,Developer Jr,Tecnologia,Ingrid Paz,Capacitacion|Bono,6500,2026-03-01

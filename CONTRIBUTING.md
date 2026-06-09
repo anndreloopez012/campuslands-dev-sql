@@ -2,7 +2,7 @@
 
 ## Ramas
 
-Use `dev` como rama base de trabajo.
+Use `dev` como rama base de trabajo. No trabaje directamente sobre `dev`; cree siempre una rama personal desde `dev`.
 
 No haga commits directos sobre:
 
@@ -25,7 +25,7 @@ git switch dev
 Para crear una rama de trabajo desde `dev`:
 
 ```bash
-git switch -c ejercicio/01-apellido-nombre
+git switch -c alumno/apellido-nombre/ejercicio-01
 ```
 
 ## Agregar nuevos ejercicios
@@ -42,7 +42,8 @@ ejercicios/
         ├── ddl/
         │   └── schema.sql
         ├── dml/
-        │   └── inserts.sql
+        │   ├── inserts.sql
+        │   └── operaciones.sql
         └── dql/
             └── consultas.sql
 ```
@@ -54,6 +55,7 @@ El `README.md` del ejercicio debe incluir:
 - Entregables.
 - Criterios de evaluacion.
 - Comandos basicos de ejecucion cuando aplique.
+- Instrucciones de Pull Request hacia `dev`.
 
 ## Agregar resoluciones
 
@@ -94,3 +96,5 @@ Verifique:
 - Las rutas solicitadas existen.
 - Las evidencias estan documentadas.
 - No hay archivos temporales o bases de datos locales versionadas.
+- El Pull Request apunta a `dev`.
+- No modifico archivos dentro de `ejercicios/`.

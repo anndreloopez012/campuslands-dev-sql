@@ -1,0 +1,4 @@
+id_matricula,estudiante,documento,ruta,trainer,modulos,horarios,notas
+1,Laura Cano,DPI-100,Node JS,Mario Paz,SQL|Express|JWT,08:00|10:00|12:00,88|91|85
+2,Kevin Rios,DPI-101,Python,Ana Solis,SQL|FastAPI,14:00|16:00,90|87
+3,Laura Cano,DPI-100,Node JS,Mario Paz,Docker|Deploy,15:00|17:00,92|89

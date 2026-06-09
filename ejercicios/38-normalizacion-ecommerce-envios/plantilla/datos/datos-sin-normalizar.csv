@@ -1,0 +1,4 @@
+id_orden,comprador,productos,cupon,metodo_pago,direccion_envio,transportadora
+1,Nadia Cruz,Audifonos|Cable USB,CAMPUS10,Tarjeta,Zona 1,FastShip
+2,Omar Valle,Laptop|Mochila,SIN_CUPON,Transferencia,Zona 10,CargoGT
+3,Nadia Cruz,Mouse|Audifonos,CAMPUS10,Tarjeta,Zona 1,FastShip

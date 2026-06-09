@@ -1,0 +1,4 @@
+id_pedido,mesa,mesero,platos,categorias,precios,cantidades,fecha_pedido
+1,Mesa 4,Sofia Mendez,Pizza|Limonada,Comida|Bebida,85|18,2|2,2026-06-01
+2,Mesa 2,Sofia Mendez,Hamburguesa|Papas,Comida|Acompanamiento,55|22,1|1,2026-06-01
+3,Mesa 4,Diego Ruiz,Cafe|Pastel,Bebida|Postre,15|30,2|1,2026-06-02

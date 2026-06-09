@@ -76,7 +76,8 @@ resoluciones/juan-perez/ejercicio-01/
 ├── ddl/
 │   └── schema.sql
 ├── dml/
-│   └── inserts.sql
+│   ├── inserts.sql
+│   └── operaciones.sql
 └── dql/
     └── consultas.sql
 ```
@@ -90,6 +91,7 @@ Ejemplo con SQLite:
 ```bash
 sqlite3 prueba.db < resoluciones/juan-perez/ejercicio-01/ddl/schema.sql
 sqlite3 prueba.db < resoluciones/juan-perez/ejercicio-01/dml/inserts.sql
+sqlite3 prueba.db < resoluciones/juan-perez/ejercicio-01/dml/operaciones.sql
 sqlite3 prueba.db < resoluciones/juan-perez/ejercicio-01/dql/consultas.sql
 ```
 

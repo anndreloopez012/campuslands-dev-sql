@@ -1,0 +1,4 @@
+id_venta,cliente_nombre,cliente_email,productos_comprados,precios,cantidades,vendedor,sucursal
+1,Ana Perez,ana@mail.com,Mouse Gamer|Teclado RGB,125|260,1|2,Luis Rojas,Sede Norte
+2,Carlos Diaz,carlos@mail.com,Monitor 24|Mouse Gamer,1450|125,1|1,Marta Lopez,Sede Centro
+3,Ana Perez,ana@mail.com,USB 64GB|Base Laptop,75|180,3|1,Luis Rojas,Sede Norte
