@@ -1,0 +1,4 @@
+id_operacion,cliente,vendedor,productos,pagos,cuotas,entregas,estados
+1,Sergio Ramos,Lucia Diaz,Tablet|Case,Tarjeta|Efectivo,1|0,Envio Norte|Tienda,Pagado|Entregado
+2,Paola Mejia,Lucia Diaz,Laptop|Mouse,Credito,3,Envio Centro,Pendiente
+3,Sergio Ramos,Mateo Ruiz,Monitor|Cable HDMI,Transferencia,1,Envio Norte,Pagado

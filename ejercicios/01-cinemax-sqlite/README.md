@@ -1,257 +1,152 @@
-# Ejercicio 01: Diseno e Implementacion de una Base de Datos para CineMax con SQLite
+# Ejercicio 01: CineMax SQLite
 
 ## Objetivo
 
-Disenar, modelar e implementar una base de datos relacional utilizando SQLite para gestionar informacion basica de un cine.
-
-Al finalizar, el estudiante debe demostrar que puede:
-
-- Analizar un contexto de negocio.
-- Identificar entidades, atributos y relaciones.
-- Definir llaves primarias y foraneas.
-- Aplicar restricciones de integridad.
-- Crear tablas con DDL.
-- Insertar datos con DML.
-- Consultar informacion con DQL.
-- Documentar evidencias tecnicas.
+Disenar e implementar una base de datos relacional en SQLite para un contexto de cine. El ejercicio se enfoca en programacion de funciones y venta de boletos.
 
 ## Contexto
 
-La empresa **CineMax** desea desarrollar un sistema sencillo para administrar la informacion relacionada con sus peliculas, salas de proyeccion, funciones y boletos vendidos.
+Una organizacion necesita dejar de manejar informacion en hojas sueltas y pasar a una base de datos relacional. Actualmente registra manualmente peliculas, salas, funciones y boletos, lo que provoca duplicidad, errores de captura y dificultad para generar reportes.
 
-Actualmente la informacion se registra manualmente, lo que dificulta:
+Su trabajo es analizar el caso, proponer el modelo, implementarlo en SQLite y demostrar que puede insertar, actualizar, eliminar y consultar informacion correctamente.
 
-- Consultar cuantas funciones existen.
-- Saber que peliculas se proyectan.
-- Conocer cuantos boletos se han vendido.
-- Identificar cuales son las salas mas utilizadas.
+## Entidades sugeridas
 
-La empresa requiere una base de datos que permita almacenar esta informacion de forma organizada, consistente y consultable.
+Puede usar estas entidades como punto de partida. Puede ajustar nombres y atributos si mantiene la coherencia del caso:
 
-Como analista de bases de datos, debe disenar el modelo de datos adecuado para resolver esta necesidad.
+- `peliculas`
+- `salas`
+- `funciones`
+- `boletos`
 
-## Requerimientos
+La solucion debe tener maximo 4 tablas. Cada tabla debe tener una responsabilidad clara.
 
-A partir del contexto anterior, identifique:
+## Requerimientos del modelo
 
-- Entidades necesarias.
-- Atributos de cada entidad.
-- Relaciones entre entidades.
-- Llaves primarias.
-- Llaves foraneas.
-- Restricciones de integridad apropiadas.
+- Definir llaves primarias con `PRIMARY KEY`.
+- Definir relaciones con `FOREIGN KEY`.
+- Usar `NOT NULL` en campos obligatorios.
+- Usar minimo una restriccion `UNIQUE`.
+- Usar minimo dos restricciones `CHECK`.
+- Incluir fechas en formato ISO `YYYY-MM-DD` o `YYYY-MM-DD HH:MM` cuando aplique.
+- Activar `PRAGMA foreign_keys = ON;`.
 
-La solucion debe contener **maximo 4 tablas**.
+## Datos minimos
 
-## Estructura de trabajo
+En `dml/inserts.sql` registre al menos:
 
-Use la plantilla incluida en este ejercicio:
+- 5 registros en cada catalogo principal.
+- 10 registros en la tabla transaccional o de relacion principal.
+- Datos suficientes para que todas las consultas tengan resultados.
+
+## Operaciones obligatorias
+
+Incluya en `dml/operaciones.sql`:
+
+- 2 operaciones `INSERT` adicionales a los datos base.
+- 2 operaciones `UPDATE` que cambien datos validos.
+- 2 operaciones `DELETE` controladas con `WHERE`.
+- 2 operaciones comentadas que fallen por restricciones (`CHECK`, `UNIQUE` o `FOREIGN KEY`).
+
+Las operaciones que deben fallar deben quedar comentadas para que el script principal pueda ejecutarse completo.
+
+## Consultas obligatorias
+
+Incluya en `dql/consultas.sql` consultas para resolver estos puntos:
+
+1. Listar todos los registros principales de la entidad central.
+2. Mostrar solo dos columnas relevantes de esa entidad.
+3. Filtrar registros por una condicion numerica o de fecha.
+4. Ordenar resultados alfabeticamente o por fecha.
+5. Mostrar los 5 registros mas importantes segun una metrica.
+6. Contar registros totales.
+7. Calcular promedio, minimo o maximo de una columna numerica.
+8. Agrupar registros con `GROUP BY`.
+9. Relacionar minimo dos tablas con `JOIN`.
+10. Crear una consulta con `WHERE`, `ORDER BY` y `LIMIT`.
+11. Crear un reporte con alias legibles para las columnas.
+12. Crear una consulta que ayude a tomar una decision del negocio.
+
+## Entregables
+
+Su carpeta de solucion debe quedar asi:
 
 ```text
-plantilla/
+resoluciones/apellido-nombre/ejercicio-01/
+├── README.md
 ├── diagramas/
-│   └── .gitkeep
+│   └── diagrama-er.png
 ├── ddl/
 │   └── schema.sql
 ├── dml/
-│   └── inserts.sql
+│   ├── inserts.sql
+│   └── operaciones.sql
 └── dql/
     └── consultas.sql
 ```
 
-Para empezar su solucion:
+## README de la solucion
 
-```bash
-cp -R ejercicios/01-cinemax-sqlite/plantilla resoluciones/01-cinemax-sqlite-apellido-nombre
-```
+Incluya:
 
-Reemplace `apellido-nombre` por sus datos.
-
-## Parte 1: Diseno del Modelo de Datos
-
-Construya un diagrama UML E-R que represente la solucion propuesta.
-
-El diagrama debe incluir:
-
-- Entidades.
-- Atributos.
-- Llaves primarias.
-- Llaves foraneas.
-- Relaciones.
-- Cardinalidades.
-
-### Entregable
-
-```text
-diagramas/
-└── diagrama-er.png
-```
-
-Tambien puede incluir un archivo fuente del diagrama si la herramienta lo genera, por ejemplo `diagrama-er.drawio`.
-
-## Parte 2: Implementacion en SQLite con DDL
-
-Implemente el modelo disenado utilizando SQLite.
-
-Las tablas deben incluir obligatoriamente:
-
-| Restriccion | Descripcion |
-|-------------|-------------|
-| `PRIMARY KEY` | Identificador unico de cada registro |
-| `FOREIGN KEY` | Referencia a otra tabla |
-| `NOT NULL` | El campo no puede estar vacio |
-| `UNIQUE` | El valor no puede repetirse |
-| `CHECK` | Validacion de valores permitidos |
-
-Active las llaves foraneas cuando ejecute sus scripts:
-
-```sql
-PRAGMA foreign_keys = ON;
-```
-
-### Entregable
-
-```text
-ddl/
-└── schema.sql
-```
-
-## Parte 3: Insercion de Datos con DML
-
-Registre informacion de prueba para validar el funcionamiento de la base de datos.
-
-### Requisitos de insercion
-
-Inserte al menos:
-
-- 5 peliculas.
-- 5 salas.
-- 8 funciones.
-- 10 boletos.
-
-### Casos de prueba
-
-Incluya al menos:
-
-- 2 inserciones validas.
-- 2 inserciones que generen error por restricciones, por ejemplo:
-  - Violacion de `UNIQUE`.
-  - Violacion de `CHECK`.
-  - Violacion de `FOREIGN KEY`.
-
-Las inserciones que generan error deben estar comentadas o separadas en una seccion identificada para que el docente pueda probarlas manualmente sin romper la ejecucion principal.
-
-### Entregable
-
-```text
-dml/
-└── inserts.sql
-```
-
-## Parte 4: Consultas con DQL
-
-Realice las siguientes consultas utilizando unicamente las tablas de su base de datos.
-
-| # | Consulta |
-|---|----------|
-| 1 | Mostrar todas las peliculas registradas con todos sus atributos. |
-| 2 | Mostrar unicamente el nombre y la duracion de todas las peliculas. |
-| 3 | Mostrar las peliculas cuya duracion sea superior a 120 minutos. |
-| 4 | Mostrar las peliculas ordenadas alfabeticamente por nombre. |
-| 5 | Mostrar las tres peliculas con mayor duracion. |
-| 6 | Contar cuantas peliculas existen registradas. |
-| 7 | Mostrar la duracion promedio de las peliculas. |
-| 8 | Mostrar la pelicula con la mayor duracion. |
-| 9 | Mostrar todas las funciones programadas despues de una fecha especifica definida por usted. |
-| 10 | Contar cuantas funciones existen para cada sala utilizando `GROUP BY`. |
-
-### Entregable
-
-```text
-dql/
-└── consultas.sql
-```
-
-## README de la resolucion
-
-Dentro de su carpeta de resolucion agregue un `README.md` con estas secciones:
-
-### 1. Informacion General
-
-- Nombre del proyecto.
-- Nombre del camper.
-- Grupo o ruta.
-- Fecha de entrega.
-
-### 2. Descripcion del Problema
-
-- Que necesidad tiene la empresa CineMax.
-- Como la base de datos propuesta ayuda a resolverla.
-
-### 3. Modelo de Datos
-
-- Imagen del diagrama UML E-R.
-- Descripcion de las entidades identificadas.
-- Explicacion de las relaciones.
-
-### 4. Restricciones Implementadas
-
-- Llaves primarias.
-- Llaves foraneas.
-- Restricciones `NOT NULL`.
-- Restricciones `UNIQUE`.
-- Restricciones `CHECK`.
-
-### 5. Evidencias
-
-Agregue capturas o salidas donde se evidencie:
-
-- Creacion de las tablas.
-- Insercion de registros.
-- Ejecucion de las consultas solicitadas.
-- Ejemplos de errores producidos por restricciones.
+- Nombre completo.
+- Fecha.
+- Descripcion corta del problema.
+- Explicacion de tablas y relaciones.
+- Restricciones aplicadas.
+- Evidencias de ejecucion o resultados relevantes.
 
 ## Como ejecutar
 
-Desde la carpeta de su resolucion:
+Desde la raiz de su solucion:
 
 ```bash
-sqlite3 cinemax.db < ddl/schema.sql
-sqlite3 cinemax.db < dml/inserts.sql
-sqlite3 cinemax.db < dql/consultas.sql
+sqlite3 ejercicio-01.db < ddl/schema.sql
+sqlite3 ejercicio-01.db < dml/inserts.sql
+sqlite3 ejercicio-01.db < dml/operaciones.sql
+sqlite3 ejercicio-01.db < dql/consultas.sql
 ```
 
-Si necesita entrar a la consola interactiva:
+No suba archivos `.db`, `.sqlite` ni `.sqlite3`.
+
+## Como entregar este ejercicio
+
+1. Haga fork del repositorio publico.
+2. Clone su fork en su computador.
+3. Cambiese a la rama `dev`.
+4. Cree una rama personal desde `dev`.
+5. Copie la carpeta `plantilla/` dentro de `resoluciones/apellido-nombre/ejercicio-01/`.
+6. Complete los archivos SQL y la documentacion pedida.
+7. Valide la solucion con SQLite.
+8. Haga commit y push a su rama.
+9. Abra Pull Request hacia `dev` del repositorio original.
 
 ```bash
-sqlite3 cinemax.db
+git switch dev
+git pull origin dev
+git switch -c alumno/apellido-nombre/ejercicio-01
+mkdir -p resoluciones/apellido-nombre
+cp -R ejercicios/01-cinemax-sqlite/plantilla resoluciones/apellido-nombre/ejercicio-01
 ```
 
-Comandos utiles dentro de SQLite:
+El Pull Request debe tener:
 
-```sql
-.tables
-.schema
-.headers on
-.mode column
-```
+- Base: `dev`
+- Compare: su rama personal
+- Titulo claro, por ejemplo: `feat(sql): resolver ejercicio 01`
+
+No abra Pull Request hacia `main`.
 
 ## Criterios de evaluacion
 
-| Criterio | Peso sugerido |
-|----------|---------------|
-| Modelo E-R coherente | 25% |
+| Criterio | Peso |
+| --- | --- |
+| Modelo relacional coherente | 25% |
 | DDL con restricciones correctas | 25% |
-| Datos de prueba suficientes | 20% |
-| Consultas correctas | 20% |
+| Inserts, updates y deletes validos | 20% |
+| Consultas SQL correctas | 20% |
 | Documentacion y evidencias | 10% |
 
-## Consideraciones
+## Nota del enunciado original
 
-- El modelo debe ser disenado por usted a partir del enunciado.
-- No copie un modelo existente de internet.
-- Se evaluara la coherencia del diseno realizado.
-- No es obligatorio utilizar `JOIN` en las consultas, aunque puede hacerlo si lo considera necesario.
-- Todas las consultas deben ejecutarse correctamente sobre los datos registrados.
-- La solucion principal no debe depender de datos cargados manualmente desde la consola.
-
+Este ejercicio parte del taller CineMax entregado por el profesor y fue adaptado para el flujo de fork, ramas y Pull Request del repositorio.

@@ -1,0 +1,4 @@
+id_reserva,huesped,documento,habitacion,servicios,costos_servicios,fechas
+1,Elena Soto,PAS-1,Habitacion 204,Desayuno|Spa,60|180,2026-07-01|2026-07-02
+2,Pedro Mora,PAS-2,Habitacion 105,Parqueo|Lavanderia,45|70,2026-07-03|2026-07-04
+3,Elena Soto,PAS-1,Habitacion 204,Desayuno|Parqueo,60|45,2026-07-05|2026-07-06
