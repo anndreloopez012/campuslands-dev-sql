@@ -18,7 +18,7 @@ CREATE TABLE boleto (
     fecha_compra TEXT,
     asiento TEXT
 
-    FOREIGN KEY (id_pelicula) REFERENCES peliculas (id_pelicula)
+    FOREIGN KEY (id_pelicula) REFERENCES peliculas (id_pelicula),
     FOREIGN KEY (id_funcion) REFERENCES funcion (id_funcion)
 )
 

@@ -6,7 +6,7 @@ PRAGMA foreign_keys=ON;
 -- 1. Mostrar todas las peliculas registradas con todos sus atributos.
 SELECT * FROM peliculas;
 -- 2. Mostrar unicamente el nombre y la duracion de todas las peliculas.
-SELECT nombre, duracion * FROM peliculas;
+SELECT nombre, duracion FROM peliculas;
 -- 3. Mostrar las peliculas cuya duracion sea superior a 120 minutos.
 SELECT * FROM peliculas WHERE duracion > 120 ;
 -- 4. Mostrar las peliculas ordenadas alfabeticamente por nombre.
@@ -18,6 +18,7 @@ SELECT count(*) AS total_peliculas FROM peliculas;
 
 -- 7. Mostrar la duracion promedio de las peliculas.
 SELECT AVG(duracion) AS promedios_minutos FROM peliculas;
+
 -- 8. Mostrar la pelicula con la mayor duracion.
 SELECT * FROM peliculas WHERE duracion = (SELECT max(duracion) FROM peliculas)
 
