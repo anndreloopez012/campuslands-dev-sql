@@ -139,3 +139,100 @@ jobs:
             if (uniqueErrors.length > 0) {
               core.setFailed(uniqueErrors.join('\n'));
             }
+
+  validar-codigo:
+    name: Validar codigo de entrega
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar codigo del PR
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Preparar SQLite
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sqlite3
+
+      - name: Revisar sintaxis y ejecucion basica
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const os = require('os');
+            const path = require('path');
+            const { execFileSync } = require('child_process');
+
+            const pr = context.payload.pull_request;
+            const { owner, repo } = context.repo;
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner,
+              repo,
+              pull_number: pr.number,
+              per_page: 100,
+            });
+
+            const changed = files
+              .filter((file) => file.status !== 'removed')
+              .map((file) => file.filename)
+              .filter((file) => fs.existsSync(file));
+
+            const errors = [];
+
+            function run(command, args, label) {
+              try {
+                execFileSync(command, args, { stdio: 'pipe', encoding: 'utf8' });
+              } catch (error) {
+                const output = `${error.stdout || ''}${error.stderr || ''}`.trim();
+                errors.push(`${label}\n${output}`);
+              }
+            }
+
+            for (const file of changed.filter((name) => name.endsWith('.js'))) {
+              run('node', ['--check', file], `${file}: error de sintaxis JavaScript.`);
+            }
+
+            for (const file of changed.filter((name) => name.endsWith('.json'))) {
+              try {
+                JSON.parse(fs.readFileSync(file, 'utf8'));
+              } catch (error) {
+                errors.push(`${file}: JSON invalido. ${error.message}`);
+              }
+            }
+
+            const sqlFiles = changed.filter((name) => name.endsWith('.sql'));
+            const groups = new Map();
+            for (const file of sqlFiles) {
+              const parts = file.split('/');
+              const idx = parts.indexOf('resoluciones');
+              const key = idx >= 0
+                ? parts.slice(0, Math.min(parts.length - 1, idx + 3)).join('/')
+                : path.dirname(file);
+              if (!groups.has(key)) groups.set(key, []);
+              groups.get(key).push(file);
+            }
+
+            const sqlOrder = (file) => {
+              const lower = file.toLowerCase();
+              if (lower.includes('/ddl/') || lower.includes('schema') || lower.includes('estructura')) return 1;
+              if (lower.includes('/dml/') || lower.includes('insert') || lower.includes('datos')) return 2;
+              if (lower.includes('/dql/') || lower.includes('consulta') || lower.includes('query')) return 3;
+              return 4;
+            };
+
+            for (const [group, groupFiles] of groups) {
+              const db = path.join(os.tmpdir(), `${group.replace(/[^a-z0-9]+/gi, '-')}.db`);
+              for (const file of groupFiles.sort((a, b) => sqlOrder(a) - sqlOrder(b) || a.localeCompare(b))) {
+                run('sqlite3', [db, `.read ${file}`], `${file}: error ejecutando SQL con SQLite.`);
+              }
+            }
+
+            if (errors.length > 0) {
+              core.setFailed(errors.join('\n\n'));
+            } else {
+              core.summary
+                .addHeading('Validacion tecnica aprobada')
+                .addRaw(`Archivos tecnicos revisados: ${changed.length}`)
+                .write();
+            }
