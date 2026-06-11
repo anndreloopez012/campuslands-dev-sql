@@ -1,7 +1,7 @@
 name: Revision automatica de PRs estudiantiles
 
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize, reopened, edited, ready_for_review]
     branches: [main, dev]
 
