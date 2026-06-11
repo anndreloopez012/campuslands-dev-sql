@@ -8,6 +8,7 @@ on:
 permissions:
   contents: read
   pull-requests: write
+  issues: write
 
 jobs:
   validar-entrega:
@@ -139,3 +140,22 @@ jobs:
             if (uniqueErrors.length > 0) {
               core.setFailed(uniqueErrors.join('\n'));
             }
+
+  feedback-pedagogico:
+    name: Feedback pedagogico automatico
+    runs-on: ubuntu-latest
+    needs: [validar-entrega, validar-codigo]
+    if: always()
+
+    steps:
+      - name: Descargar codigo del PR
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Generar feedback pedagogico
+        run: node .github/scripts/feedback-pedagogico.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_REVIEW_MODEL: ${{ vars.OPENAI_REVIEW_MODEL || 'gpt-4.1-mini' }}
