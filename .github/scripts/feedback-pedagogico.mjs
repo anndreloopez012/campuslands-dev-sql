@@ -6,8 +6,8 @@ const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1];
 const repoFull = process.env.GITHUB_REPOSITORY;
 const eventPath = process.env.GITHUB_EVENT_PATH;
 const githubToken = process.env.GITHUB_TOKEN;
-const openaiKey = process.env.OPENAI_API_KEY;
-const model = process.env.OPENAI_REVIEW_MODEL || 'gpt-4.1-mini';
+const model = process.env.GITHUB_MODELS_REVIEW_MODEL || 'openai/gpt-4.1-mini';
+const githubModelsEndpoint = 'https://models.github.ai/inference/chat/completions';
 const marker = '<!-- campuslands-ai-feedback -->';
 
 if (!eventPath || !fs.existsSync(eventPath)) {
@@ -134,14 +134,12 @@ async function upsertComment(body) {
 }
 
 function extractText(response) {
-  if (response.output_text) return response.output_text;
-  const chunks = [];
-  for (const item of response.output || []) {
-    for (const content of item.content || []) {
-      if (content.text) chunks.push(content.text);
-    }
-  }
-  return chunks.join('\n');
+  return response.choices?.[0]?.message?.content || '';
+}
+
+function isFreeLimitOrAccessError(status, message) {
+  const normalized = String(message || '').toLowerCase();
+  return status === 403 || status === 429 || normalized.includes('rate limit') || normalized.includes('quota') || normalized.includes('limit exceeded') || normalized.includes('no access');
 }
 
 function parseJson(text) {
@@ -184,16 +182,21 @@ Contexto del PR:
 ${JSON.stringify(context, null, 2)}
 `;
 
-  const response = await fetch('https://api.openai.com/v1/responses', {
+  const response = await fetch(githubModelsEndpoint, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${openaiKey}`,
+      Authorization: `Bearer ${githubToken}`,
       'Content-Type': 'application/json',
+      'X-GitHub-Api-Version': '2022-11-28',
     },
     body: JSON.stringify({
       model,
-      input: prompt,
+      messages: [
+        { role: 'system', content: 'Eres un revisor pedagogico estricto y util para una academia tecnica. Responde solo JSON valido.' },
+        { role: 'user', content: prompt },
+      ],
       temperature: 0.2,
+      max_tokens: 1800,
     }),
   });
 
@@ -202,11 +205,18 @@ ${JSON.stringify(context, null, 2)}
   try {
     data = text ? JSON.parse(text) : {};
   } catch {
-    throw new Error(`OpenAI devolvio una respuesta no JSON: ${text.slice(0, 500)}`);
+    throw new Error(`GitHub Models devolvio una respuesta no JSON: ${text.slice(0, 500)}`);
   }
 
   if (!response.ok) {
-    throw new Error(`OpenAI API error: ${data.error?.message || text}`);
+    const message = data.error?.message || data.message || text;
+    if (isFreeLimitOrAccessError(response.status, message)) {
+      return {
+        skipped: true,
+        reason: message,
+      };
+    }
+    throw new Error(`GitHub Models error: ${message}`);
   }
 
   return parseJson(extractText(data));
@@ -215,20 +225,24 @@ ${JSON.stringify(context, null, 2)}
 const files = await listPullFiles();
 const context = collectReviewContext(files);
 
-if (!openaiKey) {
+const feedback = await requestAiFeedback(context);
+
+if (feedback.skipped) {
   await upsertComment([
     marker,
-    '## Feedback pedagogico automatico pendiente',
+    '## Feedback pedagogico automatico pausado',
     '',
-    'La revision estructural y tecnica ya esta activa, pero la revision pedagogica con IA necesita configurar el secret `OPENAI_API_KEY` en este repositorio u organizacion.',
+    'GitHub Models no pudo generar la revision IA en este momento usando el cupo gratuito.',
     '',
-    'Cuando el secret exista, este check leera el README del ejercicio, comparara la entrega del alumno y publicara feedback detallado sin intervencion manual.',
+    'Motivo reportado por GitHub:',
+    `> ${String(feedback.reason || 'limite gratuito agotado o modelo no disponible').slice(0, 1000)}`,
+    '',
+    'Los checks de estructura y codigo siguen activos. Este PR queda pendiente de revision pedagogica cuando vuelva a haber cupo gratuito o cuando el alumno haga nuevos cambios.',
   ].join('\n'));
-  console.log('OPENAI_API_KEY no configurado. Se omite feedback IA.');
+  console.log('GitHub Models sin cupo/acceso gratuito disponible. Se omite feedback IA.');
   process.exit(0);
 }
 
-const feedback = await requestAiFeedback(context);
 const decision = String(feedback.decision || '').toLowerCase();
 const score = Number(feedback.puntaje || 0);
 const body = [
