@@ -9,6 +9,7 @@ permissions:
   contents: read
   pull-requests: write
   issues: write
+  models: read
 
 jobs:
   validar-entrega:
@@ -157,5 +158,4 @@ jobs:
         run: node .github/scripts/feedback-pedagogico.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_REVIEW_MODEL: ${{ vars.OPENAI_REVIEW_MODEL || 'gpt-4.1-mini' }}
+          GITHUB_MODELS_REVIEW_MODEL: ${{ vars.GITHUB_MODELS_REVIEW_MODEL || 'openai/gpt-4.1-mini' }}
