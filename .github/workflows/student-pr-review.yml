@@ -86,7 +86,7 @@ jobs:
 
             const statusLine = uniqueErrors.length === 0
               ? 'Revision automatica aprobada.'
-              : 'Revision automatica con cambios solicitados.';
+              : 'PR rechazado por estructura incorrecta.';
 
             const body = [
               marker,
@@ -94,7 +94,7 @@ jobs:
               '',
               uniqueErrors.length === 0
                 ? 'La estructura del PR cumple el flujo base: rama personal, destino correcto y archivos dentro de resoluciones/{nombre-apellido}/.'
-                : 'Antes de fusionar este PR a dev, corrige estos puntos:',
+                : 'Este PR queda bloqueado porque la estructura no cumple las reglas de entrega. Corrige estos puntos antes de volver a solicitar revision:',
               '',
               ...uniqueErrors.map((error) => `- ${error}`),
               ...(uniqueWarnings.length > 0 ? ['', 'Observaciones:', ...uniqueWarnings.map((warning) => `- ${warning}`)] : []),
@@ -104,6 +104,7 @@ jobs:
               '- Abre el Pull Request hacia dev, no hacia main.',
               '- No modifiques archivos base, plantillas, README generales ni respuestas de otros alumnos.',
               '- Tu entrega debe estar en resoluciones/{nombre-apellido}/ejercicio-XX/ o dentro de la carpeta resoluciones del ejercicio correspondiente.',
+              '- Lee GUIA-DE-ENTREGA.md antes de abrir un nuevo PR o volver a subir cambios.',
             ].join('\n');
 
             const comments = await github.paginate(github.rest.issues.listComments, {
