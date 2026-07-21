@@ -1,0 +1,13 @@
+services:
+  campuslands-package:
+    build:
+      context: .
+      dockerfile: Dockerfile.package
+      args:
+        REPOSITORY_NAME: campuslands-dev-sql
+        REPOSITORY_URL: https://github.com/anndreloopez012/campuslands-dev-sql
+    image: ghcr.io/anndreloopez012/campuslands-dev-sql:local
+    container_name: campuslands-dev-sql-docs
+    ports:
+      - "8080:80"
+    restart: unless-stopped

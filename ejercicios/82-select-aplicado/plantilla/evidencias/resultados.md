@@ -1,0 +1,21 @@
+# Evidencias - Ejercicio 82
+
+## Tema
+
+SELECT
+
+## Comandos ejecutados
+
+```bash
+sqlite3 ejercicio-82.db < ddl/schema.sql
+sqlite3 ejercicio-82.db < dml/inserts.sql
+sqlite3 ejercicio-82.db < dql/consultas.sql
+```
+
+## Resultados
+
+Pegue aqui salidas importantes o capturas descritas.
+
+## Aprendizaje
+
+Explique brevemente como se aplico `SELECT`.

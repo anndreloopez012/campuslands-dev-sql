@@ -1,0 +1,12 @@
+.git
+.github
+node_modules
+vendor
+.DS_Store
+.env
+.env.*
+graphify-out
+tmp
+coverage
+dist
+build

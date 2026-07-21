@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>__REPOSITORY_NAME__ | Campuslands Docker Package</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <p class="eyebrow">Campuslands · Docker Package</p>
+    <h1>__REPOSITORY_NAME__</h1>
+    <p class="lead">Repositorio educativo empaquetado para consulta local con Docker y publicacion automatica en GitHub Container Registry.</p>
+    <section class="panel">
+      <h2>Ejecutar imagen publicada</h2>
+      <pre><code>docker pull __IMAGE_NAME__:dev
+docker run --rm -p 8080:80 __IMAGE_NAME__:dev</code></pre>
+    </section>
+    <section class="panel">
+      <h2>Construir desde el repositorio</h2>
+      <pre><code>docker compose up -d --build</code></pre>
+    </section>
+    <nav class="actions" aria-label="Enlaces principales">
+      <a href="/repo/">Ver archivos del repositorio</a>
+      <a href="__REPOSITORY_URL__">Abrir en GitHub</a>
+      <a href="/health">Healthcheck</a>
+    </nav>
+  </main>
+</body>
+</html>

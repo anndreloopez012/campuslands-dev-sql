@@ -1,0 +1,21 @@
+FROM nginx:1.27-alpine
+
+ARG REPOSITORY_NAME=campuslands-dev-sql
+ARG REPOSITORY_URL=https://github.com/anndreloopez012/campuslands-dev-sql
+
+LABEL org.opencontainers.image.title="campuslands-dev-sql"
+LABEL org.opencontainers.image.description="Campuslands educational repository packaged for local Docker browsing"
+LABEL org.opencontainers.image.source="https://github.com/anndreloopez012/campuslands-dev-sql"
+LABEL org.opencontainers.image.url="https://github.com/anndreloopez012/campuslands-dev-sql"
+
+COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY docker/site/ /usr/share/nginx/html/
+COPY . /usr/share/nginx/html/repo/
+
+RUN rm -rf /usr/share/nginx/html/repo/.git \
+    /usr/share/nginx/html/repo/node_modules \
+    /usr/share/nginx/html/repo/vendor \
+    /usr/share/nginx/html/repo/graphify-out && \
+    sed -i "s|__REPOSITORY_NAME__|campuslands-dev-sql|g; s|__REPOSITORY_URL__|https://github.com/anndreloopez012/campuslands-dev-sql|g; s|__IMAGE_NAME__|ghcr.io/anndreloopez012/campuslands-dev-sql|g" /usr/share/nginx/html/index.html
+
+EXPOSE 80

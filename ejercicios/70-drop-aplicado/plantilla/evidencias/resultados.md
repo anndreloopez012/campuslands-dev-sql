@@ -1,0 +1,21 @@
+# Evidencias - Ejercicio 70
+
+## Tema
+
+DROP
+
+## Comandos ejecutados
+
+```bash
+sqlite3 ejercicio-70.db < ddl/schema.sql
+sqlite3 ejercicio-70.db < dml/inserts.sql
+sqlite3 ejercicio-70.db < dql/consultas.sql
+```
+
+## Resultados
+
+Pegue aqui salidas importantes o capturas descritas.
+
+## Aprendizaje
+
+Explique brevemente como se aplico `DROP`.

@@ -46,6 +46,75 @@ Esta carpeta contiene los enunciados oficiales de practica. Los estudiantes no d
 | 38 | [Normalizacion Ecommerce Envios](38-normalizacion-ecommerce-envios/README.md) | Normalizacion de datos hasta 3FN |
 | 39 | [Normalizacion Recursos Humanos](39-normalizacion-recursos-humanos/README.md) | Normalizacion de datos hasta 3FN |
 | 40 | [Normalizacion Integrador Avanzado](40-normalizacion-integrador-avanzado/README.md) | Normalizacion de datos hasta 3FN |
+| 41 | [Tipos de datos Nivel Basico](41-tipos-datos-basico/README.md) | Practica de Tipos de datos |
+| 42 | [Tipos de datos Nivel Intermedio](42-tipos-datos-intermedio/README.md) | Practica de Tipos de datos |
+| 43 | [Tipos de datos Nivel Aplicado](43-tipos-datos-aplicado/README.md) | Practica de Tipos de datos |
+| 44 | [PRIMARY KEY Nivel Basico](44-primary-key-basico/README.md) | Practica de PRIMARY KEY |
+| 45 | [PRIMARY KEY Nivel Intermedio](45-primary-key-intermedio/README.md) | Practica de PRIMARY KEY |
+| 46 | [PRIMARY KEY Nivel Aplicado](46-primary-key-aplicado/README.md) | Practica de PRIMARY KEY |
+| 47 | [FOREIGN KEY Nivel Basico](47-foreign-key-basico/README.md) | Practica de FOREIGN KEY |
+| 48 | [FOREIGN KEY Nivel Intermedio](48-foreign-key-intermedio/README.md) | Practica de FOREIGN KEY |
+| 49 | [FOREIGN KEY Nivel Aplicado](49-foreign-key-aplicado/README.md) | Practica de FOREIGN KEY |
+| 50 | [UNIQUE Nivel Basico](50-unique-basico/README.md) | Practica de UNIQUE |
+| 51 | [UNIQUE Nivel Intermedio](51-unique-intermedio/README.md) | Practica de UNIQUE |
+| 52 | [UNIQUE Nivel Aplicado](52-unique-aplicado/README.md) | Practica de UNIQUE |
+| 53 | [NOT NULL Nivel Basico](53-not-null-basico/README.md) | Practica de NOT NULL |
+| 54 | [NOT NULL Nivel Intermedio](54-not-null-intermedio/README.md) | Practica de NOT NULL |
+| 55 | [NOT NULL Nivel Aplicado](55-not-null-aplicado/README.md) | Practica de NOT NULL |
+| 56 | [CHECK Nivel Basico](56-check-basico/README.md) | Practica de CHECK |
+| 57 | [CHECK Nivel Intermedio](57-check-intermedio/README.md) | Practica de CHECK |
+| 58 | [CHECK Nivel Aplicado](58-check-aplicado/README.md) | Practica de CHECK |
+| 59 | [DEFAULT Nivel Basico](59-default-basico/README.md) | Practica de DEFAULT |
+| 60 | [DEFAULT Nivel Intermedio](60-default-intermedio/README.md) | Practica de DEFAULT |
+| 61 | [DEFAULT Nivel Aplicado](61-default-aplicado/README.md) | Practica de DEFAULT |
+| 62 | [AUTO_INCREMENT Nivel Basico](62-auto-increment-basico/README.md) | Practica de AUTO_INCREMENT |
+| 63 | [AUTO_INCREMENT Nivel Intermedio](63-auto-increment-intermedio/README.md) | Practica de AUTO_INCREMENT |
+| 64 | [AUTO_INCREMENT Nivel Aplicado](64-auto-increment-aplicado/README.md) | Practica de AUTO_INCREMENT |
+| 65 | [ALTER TABLE Nivel Basico](65-alter-table-basico/README.md) | Practica de ALTER TABLE |
+| 66 | [ALTER TABLE Nivel Intermedio](66-alter-table-intermedio/README.md) | Practica de ALTER TABLE |
+| 67 | [ALTER TABLE Nivel Aplicado](67-alter-table-aplicado/README.md) | Practica de ALTER TABLE |
+| 68 | [DROP Nivel Basico](68-drop-basico/README.md) | Practica de DROP |
+| 69 | [DROP Nivel Intermedio](69-drop-intermedio/README.md) | Practica de DROP |
+| 70 | [DROP Nivel Aplicado](70-drop-aplicado/README.md) | Practica de DROP |
+| 71 | [INSERT Nivel Basico](71-insert-basico/README.md) | Practica de INSERT |
+| 72 | [INSERT Nivel Intermedio](72-insert-intermedio/README.md) | Practica de INSERT |
+| 73 | [INSERT Nivel Aplicado](73-insert-aplicado/README.md) | Practica de INSERT |
+| 74 | [UPDATE Nivel Basico](74-update-basico/README.md) | Practica de UPDATE |
+| 75 | [UPDATE Nivel Intermedio](75-update-intermedio/README.md) | Practica de UPDATE |
+| 76 | [UPDATE Nivel Aplicado](76-update-aplicado/README.md) | Practica de UPDATE |
+| 77 | [DELETE Nivel Basico](77-delete-basico/README.md) | Practica de DELETE |
+| 78 | [DELETE Nivel Intermedio](78-delete-intermedio/README.md) | Practica de DELETE |
+| 79 | [DELETE Nivel Aplicado](79-delete-aplicado/README.md) | Practica de DELETE |
+| 80 | [SELECT Nivel Basico](80-select-basico/README.md) | Practica de SELECT |
+| 81 | [SELECT Nivel Intermedio](81-select-intermedio/README.md) | Practica de SELECT |
+| 82 | [SELECT Nivel Aplicado](82-select-aplicado/README.md) | Practica de SELECT |
+| 83 | [WHERE Nivel Basico](83-where-basico/README.md) | Practica de WHERE |
+| 84 | [WHERE Nivel Intermedio](84-where-intermedio/README.md) | Practica de WHERE |
+| 85 | [WHERE Nivel Aplicado](85-where-aplicado/README.md) | Practica de WHERE |
+| 86 | [ORDER BY Nivel Basico](86-order-by-basico/README.md) | Practica de ORDER BY |
+| 87 | [ORDER BY Nivel Intermedio](87-order-by-intermedio/README.md) | Practica de ORDER BY |
+| 88 | [ORDER BY Nivel Aplicado](88-order-by-aplicado/README.md) | Practica de ORDER BY |
+| 89 | [GROUP BY Nivel Basico](89-group-by-basico/README.md) | Practica de GROUP BY |
+| 90 | [GROUP BY Nivel Intermedio](90-group-by-intermedio/README.md) | Practica de GROUP BY |
+| 91 | [GROUP BY Nivel Aplicado](91-group-by-aplicado/README.md) | Practica de GROUP BY |
+| 92 | [HAVING Nivel Basico](92-having-basico/README.md) | Practica de HAVING |
+| 93 | [HAVING Nivel Intermedio](93-having-intermedio/README.md) | Practica de HAVING |
+| 94 | [HAVING Nivel Aplicado](94-having-aplicado/README.md) | Practica de HAVING |
+| 95 | [JOIN Nivel Basico](95-join-basico/README.md) | Practica de JOIN |
+| 96 | [JOIN Nivel Intermedio](96-join-intermedio/README.md) | Practica de JOIN |
+| 97 | [JOIN Nivel Aplicado](97-join-aplicado/README.md) | Practica de JOIN |
+| 98 | [Vistas Nivel Basico](98-vistas-basico/README.md) | Practica de Vistas |
+| 99 | [Vistas Nivel Intermedio](99-vistas-intermedio/README.md) | Practica de Vistas |
+| 100 | [Vistas Nivel Aplicado](100-vistas-aplicado/README.md) | Practica de Vistas |
+| 101 | [Procedimientos almacenados Nivel Basico](101-procedimientos-almacenados-basico/README.md) | Practica de Procedimientos almacenados |
+| 102 | [Procedimientos almacenados Nivel Intermedio](102-procedimientos-almacenados-intermedio/README.md) | Practica de Procedimientos almacenados |
+| 103 | [Procedimientos almacenados Nivel Aplicado](103-procedimientos-almacenados-aplicado/README.md) | Practica de Procedimientos almacenados |
+| 104 | [Triggers Nivel Basico](104-triggers-basico/README.md) | Practica de Triggers |
+| 105 | [Triggers Nivel Intermedio](105-triggers-intermedio/README.md) | Practica de Triggers |
+| 106 | [Triggers Nivel Aplicado](106-triggers-aplicado/README.md) | Practica de Triggers |
+| 107 | [Indices Nivel Basico](107-indices-basico/README.md) | Practica de Indices |
+| 108 | [Indices Nivel Intermedio](108-indices-intermedio/README.md) | Practica de Indices |
+| 109 | [Indices Nivel Aplicado](109-indices-aplicado/README.md) | Practica de Indices |
 
 ## Convencion
 
