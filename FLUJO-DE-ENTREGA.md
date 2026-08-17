@@ -66,6 +66,19 @@ mkdir -p resoluciones/juan-perez
 cp -R ejercicios/01-cinemax-sqlite/plantilla resoluciones/juan-perez/ejercicio-01
 ```
 
+Para la serie `solicitudes-sql`, usa una ruta separada dentro de tu carpeta personal:
+
+```bash
+mkdir -p resoluciones/juan-perez/solicitudes-sql
+cp -R solicitudes-sql/ejercicio-001-cafeteria-campus/plantilla resoluciones/juan-perez/solicitudes-sql/ejercicio-001
+```
+
+La ruta final debe verse asi:
+
+```text
+resoluciones/juan-perez/solicitudes-sql/ejercicio-001/
+```
+
 ## 4. Completar los archivos SQL
 
 Trabaja dentro de tu carpeta personal:
@@ -118,6 +131,7 @@ No modifiques:
 - `main`
 - `dev`
 - Enunciados en `ejercicios/`, salvo autorizacion del instructor.
+- Enunciados en `solicitudes-sql/`, salvo autorizacion del instructor.
 - Respuestas de otros estudiantes.
 - Archivos base del repositorio.
 
@@ -134,6 +148,13 @@ Ejemplos:
 ```bash
 git add resoluciones/juan-perez/
 git commit -m "feat(sql): resolver ejercicio 01"
+```
+
+Para la serie de solicitudes SQL:
+
+```bash
+git add resoluciones/juan-perez/solicitudes-sql/ejercicio-001
+git commit -m "feat(sql): resolver solicitud sql 001"
 ```
 
 ```bash
@@ -195,6 +216,7 @@ El profesor revisara:
 - Que el PR apunte a `dev`.
 - Que no toque `main`.
 - Que la entrega este dentro de `resoluciones/nombre-apellido/`.
+- Que las solicitudes SQL esten dentro de `resoluciones/nombre-apellido/solicitudes-sql/ejercicio-XXX/`.
 - Que no modifique enunciados base.
 - Que no modifique respuestas de otros estudiantes.
 - Que no suba bases de datos generadas.
@@ -221,6 +243,7 @@ El Pull Request se actualiza automaticamente.
 - Mi PR apunta a `dev`.
 - No abri PR hacia `main`.
 - Mi solucion esta en `resoluciones/nombre-apellido/`.
+- Si resolvi la serie de solicitudes SQL, use `resoluciones/nombre-apellido/solicitudes-sql/ejercicio-XXX/`.
 - No modifique enunciados base.
 - No modifique respuestas de otros estudiantes.
 - No subi `.db`, `.sqlite` ni `.sqlite3`.

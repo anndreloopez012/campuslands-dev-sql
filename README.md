@@ -4,6 +4,79 @@ Repositorio publico de ejercicios de SQL para practicar diseno, creacion, inserc
 
 Este repositorio esta preparado para que los estudiantes hagan fork, trabajen desde `dev`, creen su propia rama y envien Pull Request hacia `dev`.
 
+## Acceso rapido
+
+| Quiero practicar | Enlace | Para que sirve |
+| --- | --- | --- |
+| Ejercicios tecnicos SQL | [ejercicios/README.md](ejercicios/README.md) | Practicar comandos, restricciones, consultas, normalizacion, vistas, triggers, procedimientos e indices. |
+| Solicitudes de cliente a SQL | [solicitudes-sql/README.md](solicitudes-sql/README.md) | Leer una solicitud escrita por un posible cliente y convertirla en tablas, relaciones, inserts, updates, deletes y consultas. |
+| Flujo de entrega | [FLUJO-DE-ENTREGA.md](FLUJO-DE-ENTREGA.md) | Saber como crear rama, copiar plantilla, hacer commit, push y Pull Request hacia `dev`. |
+| Reglas de contribucion | [CONTRIBUTING.md](CONTRIBUTING.md) | Revisar estructura obligatoria, mensajes de commit y reglas para no tocar archivos base. |
+
+## Nuevo bloque: Solicitudes SQL
+
+La carpeta [solicitudes-sql/](solicitudes-sql/README.md) contiene una serie nueva de 100 ejercicios numerados del `001` al `100`.
+
+Esta serie esta pensada para evaluar una habilidad mas cercana al trabajo real: comprender lo que un cliente pide en texto y transformarlo en SQL.
+
+El estudiante debe convertir cada solicitud en:
+
+- Analisis de requerimiento.
+- Tablas bien separadas.
+- Relaciones con `PRIMARY KEY` y `FOREIGN KEY`.
+- Datos de prueba con `INSERT`.
+- Cambios controlados con `UPDATE`.
+- Eliminaciones seguras con `DELETE`.
+- Consultas que respondan preguntas reales del cliente.
+- Evidencias y explicacion de decisiones.
+
+### Progresion de la serie
+
+| Rango | Nivel | Enfoque |
+| --- | --- | --- |
+| 001-020 | Comprension inicial | Identificar entidades, atributos y crear tablas simples. |
+| 021-040 | Relaciones basicas | Separar catalogos, crear relaciones y consultar con `JOIN`. |
+| 041-060 | Operaciones controladas | Aplicar restricciones, `UPDATE`, `DELETE` seguro y reglas de negocio. |
+| 061-080 | Reportes | Crear consultas con agrupaciones, rankings, totales y metricas. |
+| 081-100 | Solicitud profesional | Resolver casos abiertos, documentar supuestos, normalizar y crear vistas. |
+
+### Ir directo a los ejercicios
+
+- [Ver listado completo de Solicitudes SQL](solicitudes-sql/README.md)
+- [Empezar por el ejercicio 001](solicitudes-sql/ejercicio-001-cafeteria-campus/README.md)
+- [Ir al bloque intermedio desde el ejercicio 021](solicitudes-sql/ejercicio-021-battle-royale-ranking/README.md)
+- [Ir al bloque de operaciones desde el ejercicio 041](solicitudes-sql/ejercicio-041-hotel-gamers/README.md)
+- [Ir al bloque de reportes desde el ejercicio 061](solicitudes-sql/ejercicio-061-delivery-comida/README.md)
+- [Ir al bloque profesional desde el ejercicio 081](solicitudes-sql/ejercicio-081-renta-autos-lujo/README.md)
+
+### Ruta de entrega para Solicitudes SQL
+
+Las respuestas de esta serie deben ir dentro de la carpeta personal del estudiante:
+
+```text
+resoluciones/nombre-apellido/solicitudes-sql/ejercicio-XXX/
+```
+
+Ejemplo para el ejercicio `001`:
+
+```bash
+git switch dev
+git pull origin dev
+git switch -c alumno/nombre-apellido/solicitud-sql-001
+mkdir -p resoluciones/nombre-apellido/solicitudes-sql
+cp -R solicitudes-sql/ejercicio-001-cafeteria-campus/plantilla resoluciones/nombre-apellido/solicitudes-sql/ejercicio-001
+```
+
+Despues de resolver:
+
+```bash
+git add resoluciones/nombre-apellido/solicitudes-sql/ejercicio-001
+git commit -m "feat(sql): resolver solicitud sql 001"
+git push -u origin alumno/nombre-apellido/solicitud-sql-001
+```
+
+El Pull Request siempre debe apuntar a `dev`, nunca a `main`.
+
 ## Objetivo
 
 Fortalecer las habilidades necesarias para:
@@ -70,6 +143,11 @@ campuslands-dev-sql/
 │   ├── 01-cinemax-sqlite/
 │   ├── 02-campus-shop/
 │   └── ... 109 ejercicios
+├── solicitudes-sql/
+│   ├── README.md
+│   ├── ejercicio-001-cafeteria-campus/
+│   ├── ejercicio-002-taller-motos/
+│   └── ... 100 ejercicios de solicitudes de cliente
 └── resoluciones/
     └── README.md
 ```
@@ -220,6 +298,14 @@ Hay 109 ejercicios progresivos:
 
 Consulte el listado navegable en [ejercicios/README.md](ejercicios/README.md).
 
+## Listado de Solicitudes SQL
+
+El listado completo de los 100 ejercicios nuevos esta en:
+
+[solicitudes-sql/README.md](solicitudes-sql/README.md)
+
+Use esta serie cuando el objetivo sea evaluar comprension de solicitudes de cliente y transformacion a SQL.
+
 ## Como trabajar un ejercicio
 
 1. Haga fork del repositorio.
@@ -263,6 +349,22 @@ compare: alumno/apellido-nombre/ejercicio-01
 
 No se aceptan Pull Requests hacia `main`.
 
+Para la serie de solicitudes SQL, use esta ruta:
+
+```bash
+git switch -c alumno/apellido-nombre/solicitud-sql-001
+mkdir -p resoluciones/apellido-nombre/solicitudes-sql
+cp -R solicitudes-sql/ejercicio-001-cafeteria-campus/plantilla resoluciones/apellido-nombre/solicitudes-sql/ejercicio-001
+```
+
+Despues agregue solo su carpeta de resolucion:
+
+```bash
+git add resoluciones/apellido-nombre/solicitudes-sql/ejercicio-001
+git commit -m "feat(sql): resolver solicitud sql 001"
+git push -u origin alumno/apellido-nombre/solicitud-sql-001
+```
+
 ## Ramas protegidas
 
 - `main` esta protegida como rama estable.
@@ -288,4 +390,6 @@ La guia de configuracion de proteccion esta en [.github/branch-protection.md](.g
 - Las soluciones deben poder ejecutarse desde cero en una base de datos vacia.
 - No se deben subir archivos generados innecesarios como bases de datos locales, caches o capturas temporales.
 - Las soluciones van en `resoluciones/apellido-nombre/ejercicio-XX/`.
+- Las soluciones de la serie de solicitudes van en `resoluciones/apellido-nombre/solicitudes-sql/ejercicio-XXX/`.
 - Los enunciados en `ejercicios/` no se modifican.
+- Los enunciados en `solicitudes-sql/` no se modifican.

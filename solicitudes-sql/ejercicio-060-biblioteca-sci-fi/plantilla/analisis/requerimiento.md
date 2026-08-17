@@ -1,0 +1,38 @@
+# Analisis del requerimiento - Ejercicio 060
+
+## Solicitud entendida
+
+Explique con sus palabras que pidio el cliente de Biblioteca Sci-Fi.
+
+## Entidades detectadas
+
+Complete esta tabla antes de escribir SQL.
+
+| Entidad | Por que existe | Atributos importantes |
+| --- | --- | --- |
+| libros | Pendiente de explicar | Pendiente de definir |
+| autores | Pendiente de explicar | Pendiente de definir |
+| lectores | Pendiente de explicar | Pendiente de definir |
+| prestamos | Pendiente de explicar | Pendiente de definir |
+
+## Relaciones detectadas
+
+| Relacion | Tipo | Explicacion |
+| --- | --- | --- |
+| entidad_a -> entidad_b | 1:N | Explique la relacion |
+
+## Reglas de negocio
+
+- Regla 1:
+- Regla 2:
+- Regla 3:
+
+## Supuestos
+
+Documente cualquier decision que el cliente no dijo claramente.
+
+## Preguntas que responde la base de datos
+
+1.
+2.
+3.

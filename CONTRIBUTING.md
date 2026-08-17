@@ -28,6 +28,12 @@ Para crear una rama de trabajo desde `dev`:
 git switch -c alumno/apellido-nombre/ejercicio-01
 ```
 
+Para la serie de solicitudes SQL:
+
+```bash
+git switch -c alumno/apellido-nombre/solicitud-sql-001
+```
+
 ## Agregar nuevos ejercicios
 
 Cada nuevo ejercicio debe agregarse con esta estructura:
@@ -77,6 +83,17 @@ resoluciones/
 
 No deje archivos sueltos directamente dentro de `resoluciones/`.
 No modifique resoluciones de otros estudiantes.
+
+Para la serie `solicitudes-sql`, use:
+
+```text
+resoluciones/
+└── apellido-nombre/
+    └── solicitudes-sql/
+        └── ejercicio-001/
+```
+
+No modifique los enunciados ni plantillas dentro de `solicitudes-sql/`.
 
 ## Commits
 

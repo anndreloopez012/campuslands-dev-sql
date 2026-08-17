@@ -1,0 +1,46 @@
+<svg viewBox="0 0 960 440" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { stroke: #33475b; stroke-width: 1.5; fill: none; }
+    .lbl { font-size: 11px; fill: #12233a; }
+  </style>
+
+  <rect x="30" y="30" width="220" height="110" class="box" />
+  <text x="45" y="52" class="title">aeropuertos</text>
+  <text x="45" y="72" class="attr">id_aeropuerto (PK)</text>
+  <text x="45" y="90" class="attr">codigo (UNIQUE)</text>
+  <text x="45" y="108" class="attr">nombre, ciudad</text>
+
+  <rect x="30" y="250" width="220" height="100" class="box" />
+  <text x="45" y="272" class="title">aviones</text>
+  <text x="45" y="292" class="attr">id_avion (PK)</text>
+  <text x="45" y="310" class="attr">matricula (UNIQUE), modelo</text>
+  <text x="45" y="328" class="attr">capacidad (CHECK)</text>
+
+  <rect x="370" y="140" width="260" height="140" class="box" />
+  <text x="385" y="162" class="title">vuelos</text>
+  <text x="385" y="182" class="attr">id_vuelo (PK)</text>
+  <text x="385" y="200" class="attr">id_avion (FK)</text>
+  <text x="385" y="218" class="attr">id_aeropuerto_origen (FK)</text>
+  <text x="385" y="236" class="attr">id_aeropuerto_destino (FK)</text>
+  <text x="385" y="254" class="attr">fecha_salida, precio_base (CHECK)</text>
+
+  <rect x="720" y="140" width="220" height="140" class="box" />
+  <text x="735" y="162" class="title">reservas</text>
+  <text x="735" y="182" class="attr">id_reserva (PK)</text>
+  <text x="735" y="200" class="attr">id_vuelo (FK)</text>
+  <text x="735" y="218" class="attr">pasajero, asiento</text>
+  <text x="735" y="236" class="attr">precio_pagado (CHECK)</text>
+  <text x="735" y="254" class="attr">estado (CHECK), UNIQUE(id_vuelo, asiento)</text>
+
+  <path d="M250,85 C320,85 320,190 370,190" class="rel" />
+  <text x="290" y="140" class="lbl">1 : N</text>
+
+  <path d="M250,300 C320,300 320,220 370,220" class="rel" />
+  <text x="290" y="270" class="lbl">1 : N</text>
+
+  <path d="M630,210 H720" class="rel" />
+  <text x="650" y="202" class="lbl">1 : N</text>
+</svg>

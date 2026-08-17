@@ -1,0 +1,44 @@
+<svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="20" width="190" height="90" class="box"/>
+  <text x="30" y="40" class="title">pacientes</text>
+  <text x="30" y="58" class="attr">id_paciente PK</text>
+  <text x="30" y="74" class="attr">correo UNIQUE</text>
+  <text x="30" y="90" class="attr">telefono</text>
+
+  <rect x="20" y="280" width="190" height="90" class="box"/>
+  <text x="30" y="300" class="title">medicos</text>
+  <text x="30" y="318" class="attr">id_medico PK</text>
+  <text x="30" y="334" class="attr">especialidad</text>
+  <text x="30" y="350" class="attr">colegiado UNIQUE</text>
+
+  <rect x="350" y="280" width="200" height="80" class="box"/>
+  <text x="360" y="300" class="title">consultorios</text>
+  <text x="360" y="318" class="attr">id_consultorio PK</text>
+  <text x="360" y="334" class="attr">numero UNIQUE, piso</text>
+
+  <rect x="640" y="130" width="230" height="150" class="box"/>
+  <text x="650" y="150" class="title">citas</text>
+  <text x="650" y="168" class="attr">id_cita PK</text>
+  <text x="650" y="184" class="attr">id_paciente FK</text>
+  <text x="650" y="200" class="attr">id_medico FK</text>
+  <text x="650" y="216" class="attr">id_consultorio FK</text>
+  <text x="650" y="232" class="attr">fecha_hora, estado</text>
+  <text x="650" y="248" class="attr">UNIQUE(id_medico,fecha_hora)</text>
+
+  <line x1="210" y1="60" x2="640" y2="190"/>
+  <text x="380" y="120" class="rel">1..N</text>
+
+  <line x1="210" y1="330" x2="640" y2="230"/>
+  <text x="380" y="300" class="rel">1..N</text>
+
+  <line x1="550" y1="320" x2="640" y2="260"/>
+  <text x="580" y="330" class="rel">1..N</text>
+</svg>
