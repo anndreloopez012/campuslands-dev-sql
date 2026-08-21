@@ -1,0 +1,67 @@
+<svg viewBox="0 0 1080 560" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { stroke: #33475b; stroke-width: 1.5; fill: none; }
+    .lbl { font-size: 11px; fill: #12233a; }
+  </style>
+
+  <rect x="30" y="30" width="220" height="70" class="box" />
+  <text x="45" y="52" class="title">compradores</text>
+  <text x="45" y="72" class="attr">id_comprador (PK)</text>
+  <text x="45" y="90" class="attr">nombre (UNIQUE)</text>
+
+  <rect x="830" y="30" width="220" height="70" class="box" />
+  <text x="845" y="52" class="title">cupones</text>
+  <text x="845" y="72" class="attr">id_cupon (PK)</text>
+  <text x="845" y="90" class="attr">codigo (UNIQUE)</text>
+
+  <rect x="420" y="180" width="240" height="100" class="box" />
+  <text x="435" y="202" class="title">ordenes</text>
+  <text x="435" y="222" class="attr">id_orden (PK)</text>
+  <text x="435" y="240" class="attr">id_comprador (FK)</text>
+  <text x="435" y="258" class="attr">id_cupon (FK, opcional)</text>
+
+  <rect x="30" y="360" width="240" height="70" class="box" />
+  <text x="45" y="382" class="title">productos</text>
+  <text x="45" y="402" class="attr">id_producto (PK)</text>
+  <text x="45" y="420" class="attr">nombre (UNIQUE), precio (CHECK)</text>
+
+  <rect x="330" y="360" width="260" height="120" class="box" />
+  <text x="345" y="382" class="title">detalle_orden</text>
+  <text x="345" y="402" class="attr">id_detalle (PK)</text>
+  <text x="345" y="420" class="attr">id_orden (FK), id_producto (FK)</text>
+  <text x="345" y="438" class="attr">cantidad (CHECK)</text>
+  <text x="345" y="456" class="attr">precio_unitario (CHECK)</text>
+
+  <rect x="650" y="360" width="200" height="90" class="box" />
+  <text x="665" y="382" class="title">pagos</text>
+  <text x="665" y="402" class="attr">id_pago (PK)</text>
+  <text x="665" y="420" class="attr">id_orden (FK, UNIQUE)</text>
+  <text x="665" y="438" class="attr">metodo_pago (CHECK), monto (CHECK)</text>
+
+  <rect x="870" y="360" width="200" height="90" class="box" />
+  <text x="885" y="382" class="title">envios</text>
+  <text x="885" y="402" class="attr">id_envio (PK)</text>
+  <text x="885" y="420" class="attr">id_orden (FK, UNIQUE)</text>
+  <text x="885" y="438" class="attr">direccion, transportadora</text>
+
+  <path d="M250,65 C340,65 340,220 420,220" class="rel" />
+  <text x="290" y="200" class="lbl">1 : N</text>
+
+  <path d="M830,65 C740,65 740,220 660,220" class="rel" />
+  <text x="770" y="200" class="lbl">1 : N (opcional)</text>
+
+  <path d="M480,280 C480,320 450,340 450,360" class="rel" />
+  <text x="490" y="320" class="lbl">1 : N</text>
+
+  <path d="M150,360 V430 H330" class="rel" />
+  <text x="200" y="352" class="lbl">1 : N</text>
+
+  <path d="M580,220 C650,220 700,300 750,360" class="rel" />
+  <text x="650" y="290" class="lbl">1 : 1</text>
+
+  <path d="M600,220 C750,220 900,280 950,360" class="rel" />
+  <text x="820" y="270" class="lbl">1 : 1</text>
+</svg>

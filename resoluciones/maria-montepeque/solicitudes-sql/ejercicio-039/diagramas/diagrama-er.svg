@@ -1,0 +1,37 @@
+<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="90" width="210" height="90" class="box"/>
+  <text x="30" y="110" class="title">clientes</text>
+  <text x="30" y="128" class="attr">id_cliente PK</text>
+  <text x="30" y="144" class="attr">nombre_cliente UNIQUE</text>
+  <text x="30" y="160" class="attr">telefono</text>
+
+  <rect x="330" y="90" width="210" height="110" class="box"/>
+  <text x="340" y="110" class="title">vehiculos</text>
+  <text x="340" y="128" class="attr">id_vehiculo PK</text>
+  <text x="340" y="144" class="attr">placa UNIQUE</text>
+  <text x="340" y="160" class="attr">marca, modelo</text>
+  <text x="340" y="176" class="attr">id_cliente FK</text>
+
+  <rect x="640" y="70" width="240" height="160" class="box"/>
+  <text x="650" y="90" class="title">diagnosticos</text>
+  <text x="650" y="108" class="attr">id_diagnostico PK</text>
+  <text x="650" y="124" class="attr">id_vehiculo FK</text>
+  <text x="650" y="140" class="attr">fecha_diagnostico, descripcion</text>
+  <text x="650" y="156" class="attr">costo_reparacion, estado</text>
+  <text x="650" y="172" class="attr">garantia_meses</text>
+  <text x="650" y="188" class="attr">fecha_ultimo_cambio</text>
+
+  <line x1="230" y1="135" x2="330" y2="145"/>
+  <text x="250" y="130" class="rel">1..N</text>
+
+  <line x1="540" y1="145" x2="640" y2="150"/>
+  <text x="560" y="140" class="rel">1..N</text>
+</svg>

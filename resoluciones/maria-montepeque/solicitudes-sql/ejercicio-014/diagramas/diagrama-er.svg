@@ -1,0 +1,29 @@
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="90" width="220" height="130" class="box"/>
+  <text x="30" y="110" class="title">vehiculos</text>
+  <text x="30" y="128" class="attr">id_vehiculo PK</text>
+  <text x="30" y="144" class="attr">placa UNIQUE</text>
+  <text x="30" y="160" class="attr">marca, modelo</text>
+  <text x="30" y="176" class="attr">nombre_dueno</text>
+
+  <rect x="390" y="30" width="230" height="210" class="box"/>
+  <text x="400" y="50" class="title">reparaciones</text>
+  <text x="400" y="68" class="attr">id_reparacion PK</text>
+  <text x="400" y="84" class="attr">id_vehiculo FK</text>
+  <text x="400" y="100" class="attr">diagnostico</text>
+  <text x="400" y="116" class="attr">costo</text>
+  <text x="400" y="132" class="attr">fecha_reparacion</text>
+  <text x="400" y="148" class="attr">garantia_dias</text>
+  <text x="400" y="164" class="attr">estado</text>
+
+  <line x1="240" y1="150" x2="390" y2="140"/>
+  <text x="280" y="135" class="rel">1..N</text>
+</svg>

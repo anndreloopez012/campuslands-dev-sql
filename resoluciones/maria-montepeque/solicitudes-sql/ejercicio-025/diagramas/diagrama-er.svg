@@ -1,0 +1,36 @@
+<svg viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="70" width="200" height="100" class="box"/>
+  <text x="30" y="90" class="title">pilotos</text>
+  <text x="30" y="108" class="attr">id_piloto PK</text>
+  <text x="30" y="124" class="attr">nombre_piloto UNIQUE</text>
+  <text x="30" y="140" class="attr">licencia UNIQUE, categoria</text>
+
+  <rect x="350" y="70" width="200" height="90" class="box"/>
+  <text x="360" y="90" class="title">vehiculos</text>
+  <text x="360" y="108" class="attr">id_vehiculo PK</text>
+  <text x="360" y="124" class="attr">id_piloto FK</text>
+  <text x="360" y="140" class="attr">modelo, potencia_hp</text>
+
+  <rect x="670" y="30" width="210" height="180" class="box"/>
+  <text x="680" y="50" class="title">sesiones</text>
+  <text x="680" y="68" class="attr">id_sesion PK</text>
+  <text x="680" y="84" class="attr">id_vehiculo FK</text>
+  <text x="680" y="100" class="attr">tiempo_vuelta_segundos</text>
+  <text x="680" y="116" class="attr">fecha_sesion</text>
+  <text x="680" y="132" class="attr">clima</text>
+  <text x="680" y="148" class="attr">estado</text>
+
+  <line x1="220" y1="115" x2="350" y2="115"/>
+  <text x="260" y="105" class="rel">1..N</text>
+
+  <line x1="550" y1="115" x2="670" y2="115"/>
+  <text x="590" y="105" class="rel">1..N</text>
+</svg>

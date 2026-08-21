@@ -1,0 +1,51 @@
+<svg viewBox="0 0 960 440" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { stroke: #33475b; stroke-width: 1.5; fill: none; }
+    .lbl { font-size: 11px; fill: #12233a; }
+    .view { fill: #eef3ee; stroke: #2f6b3a; stroke-width: 1.5; stroke-dasharray: 4 3; }
+    .viewtitle { font-weight: bold; font-size: 13px; fill: #1f4a27; }
+  </style>
+
+  <rect x="30" y="30" width="220" height="90" class="box" />
+  <text x="45" y="52" class="title">clientes</text>
+  <text x="45" y="72" class="attr">id_cliente (PK)</text>
+  <text x="45" y="90" class="attr">correo (UNIQUE)</text>
+
+  <rect x="700" y="30" width="220" height="90" class="box" />
+  <text x="715" y="52" class="title">vendedores</text>
+  <text x="715" y="72" class="attr">id_vendedor (PK)</text>
+  <text x="715" y="90" class="attr">correo (UNIQUE)</text>
+
+  <rect x="370" y="150" width="250" height="120" class="box" />
+  <text x="385" y="172" class="title">ventas</text>
+  <text x="385" y="192" class="attr">id_venta (PK)</text>
+  <text x="385" y="210" class="attr">id_cliente (FK), id_vendedor (FK)</text>
+  <text x="385" y="228" class="attr">total (CHECK), fecha</text>
+
+  <rect x="370" y="320" width="250" height="100" class="box" />
+  <text x="385" y="342" class="title">pagos</text>
+  <text x="385" y="362" class="attr">id_pago (PK)</text>
+  <text x="385" y="380" class="attr">id_venta (FK)</text>
+  <text x="385" y="398" class="attr">monto (CHECK), metodo (CHECK)</text>
+
+  <rect x="30" y="230" width="280" height="90" class="view" />
+  <text x="45" y="252" class="viewtitle">VIEW vista_resumen_ventas</text>
+  <text x="45" y="272" class="attr">total_venta, total_pagado</text>
+  <text x="45" y="290" class="attr">saldo_pendiente</text>
+
+  <rect x="670" y="230" width="260" height="70" class="view" />
+  <text x="685" y="252" class="viewtitle">VIEW vista_ranking_vendedores</text>
+  <text x="685" y="272" class="attr">cantidad_ventas, total_vendido</text>
+
+  <path d="M250,75 C310,75 310,205 370,205" class="rel" />
+  <text x="290" y="140" class="lbl">1 : N</text>
+
+  <path d="M700,75 C660,75 660,205 620,205" class="rel" />
+  <text x="650" y="140" class="lbl">1 : N</text>
+
+  <path d="M495,270 V320" class="rel" />
+  <text x="505" y="300" class="lbl">1 : N</text>
+</svg>

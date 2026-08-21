@@ -1,0 +1,61 @@
+<svg viewBox="0 0 1080 520" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .bridge { fill: #eef2f7; stroke: #33475b; stroke-width: 1.5; stroke-dasharray: 3 2; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { stroke: #33475b; stroke-width: 1.5; fill: none; }
+    .lbl { font-size: 11px; fill: #12233a; }
+  </style>
+
+  <rect x="30" y="30" width="220" height="70" class="box" />
+  <text x="45" y="52" class="title">empleados</text>
+  <text x="45" y="72" class="attr">id_empleado (PK)</text>
+  <text x="45" y="90" class="attr">nombre (UNIQUE)</text>
+
+  <rect x="30" y="360" width="220" height="70" class="box" />
+  <text x="45" y="382" class="title">cargos</text>
+  <text x="45" y="402" class="attr">id_cargo (PK)</text>
+  <text x="45" y="420" class="attr">nombre (UNIQUE)</text>
+
+  <rect x="830" y="360" width="220" height="70" class="box" />
+  <text x="845" y="382" class="title">departamentos</text>
+  <text x="845" y="402" class="attr">id_departamento (PK)</text>
+  <text x="845" y="420" class="attr">nombre (UNIQUE)</text>
+
+  <rect x="400" y="180" width="280" height="150" class="box" />
+  <text x="415" y="202" class="title">contratos</text>
+  <text x="415" y="222" class="attr">id_contrato (PK)</text>
+  <text x="415" y="240" class="attr">id_empleado (FK), id_cargo (FK)</text>
+  <text x="415" y="258" class="attr">id_departamento (FK)</text>
+  <text x="415" y="276" class="attr">id_jefe (FK -> empleados, opcional)</text>
+  <text x="415" y="294" class="attr">salario (CHECK), fecha_contrato (CHECK)</text>
+
+  <rect x="830" y="30" width="220" height="70" class="box" />
+  <text x="845" y="52" class="title">beneficios</text>
+  <text x="845" y="72" class="attr">id_beneficio (PK)</text>
+  <text x="845" y="90" class="attr">nombre (UNIQUE)</text>
+
+  <rect x="400" y="400" width="280" height="90" class="bridge" />
+  <text x="415" y="422" class="title">asignaciones</text>
+  <text x="415" y="442" class="attr">id_contrato (FK), id_beneficio (FK)</text>
+  <text x="415" y="460" class="attr">UNIQUE (id_contrato, id_beneficio)</text>
+
+  <path d="M140,100 C140,180 380,180 400,255" class="rel" />
+  <text x="200" y="180" class="lbl">1 : N (empleado)</text>
+
+  <path d="M140,100 C400,100 500,130 500,180" class="rel" stroke-dasharray="5 3" />
+  <text x="420" y="130" class="lbl">1 : N (jefe, auto-referencia)</text>
+
+  <path d="M140,360 V255" class="rel" />
+  <text x="150" y="320" class="lbl">1 : N</text>
+
+  <path d="M830,395 H680" class="rel" />
+  <text x="720" y="387" class="lbl">1 : N</text>
+
+  <path d="M540,330 V400" class="rel" />
+  <text x="550" y="370" class="lbl">1 : N</text>
+
+  <path d="M940,100 C940,250 620,350 600,400" class="rel" />
+  <text x="850" y="250" class="lbl">1 : N</text>
+</svg>

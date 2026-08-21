@@ -1,0 +1,51 @@
+<svg viewBox="0 0 1040 480" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { stroke: #33475b; stroke-width: 1.5; fill: none; }
+    .lbl { font-size: 11px; fill: #12233a; }
+  </style>
+
+  <rect x="30" y="30" width="220" height="70" class="box" />
+  <text x="45" y="52" class="title">pacientes</text>
+  <text x="45" y="72" class="attr">id_paciente (PK)</text>
+  <text x="45" y="90" class="attr">nombre, dpi (UNIQUE)</text>
+
+  <rect x="790" y="30" width="220" height="70" class="box" />
+  <text x="805" y="52" class="title">especialidades</text>
+  <text x="805" y="72" class="attr">id_especialidad (PK)</text>
+  <text x="805" y="90" class="attr">nombre (UNIQUE)</text>
+
+  <rect x="790" y="180" width="220" height="90" class="box" />
+  <text x="805" y="202" class="title">medicos</text>
+  <text x="805" y="222" class="attr">id_medico (PK)</text>
+  <text x="805" y="240" class="attr">nombre (UNIQUE)</text>
+  <text x="805" y="258" class="attr">id_especialidad (FK)</text>
+
+  <rect x="390" y="180" width="260" height="120" class="box" />
+  <text x="405" y="202" class="title">consultas</text>
+  <text x="405" y="222" class="attr">id_consulta (PK)</text>
+  <text x="405" y="240" class="attr">id_paciente (FK), id_medico (FK)</text>
+  <text x="405" y="258" class="attr">fecha_consulta (CHECK)</text>
+  <text x="405" y="276" class="attr">UNIQUE (id_paciente, id_medico, fecha)</text>
+
+  <rect x="390" y="360" width="260" height="110" class="box" />
+  <text x="405" y="382" class="title">tratamientos</text>
+  <text x="405" y="402" class="attr">id_tratamiento (PK)</text>
+  <text x="405" y="420" class="attr">id_consulta (FK)</text>
+  <text x="405" y="438" class="attr">nombre (CHECK), costo (CHECK)</text>
+  <text x="405" y="456" class="attr">UNIQUE (id_consulta, nombre)</text>
+
+  <path d="M250,70 C330,70 330,240 390,240" class="rel" />
+  <text x="290" y="200" class="lbl">1 : N</text>
+
+  <path d="M790,220 H650" class="rel" />
+  <text x="700" y="212" class="lbl">1 : N</text>
+
+  <path d="M900,100 V180" class="rel" />
+  <text x="910" y="150" class="lbl">1 : N</text>
+
+  <path d="M520,300 V360" class="rel" />
+  <text x="530" y="335" class="lbl">1 : N</text>
+</svg>

@@ -24,3 +24,10 @@ WHERE tipo_movimiento = 'salida'
 
 DELETE FROM movimientos_inventario
 WHERE id_movimiento = 4;
+
+-- 2 operaciones comentadas que deben fallar por restricciones
+-- Falla por UNIQUE (marcas.nombre): la marca ya existe
+-- INSERT INTO marcas (nombre) VALUES ('Trek');
+
+-- Falla por CHECK (cantidad > 0)
+-- INSERT INTO movimientos_inventario (id_bicicleta, id_proveedor, tipo_movimiento, cantidad, fecha_movimiento) VALUES (1, 1, 'entrada', 0, '2026-07-20');

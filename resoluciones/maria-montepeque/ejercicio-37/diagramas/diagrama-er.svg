@@ -1,0 +1,64 @@
+<svg viewBox="0 0 1080 560" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .bridge { fill: #eef2f7; stroke: #33475b; stroke-width: 1.5; stroke-dasharray: 3 2; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { stroke: #33475b; stroke-width: 1.5; fill: none; }
+    .lbl { font-size: 11px; fill: #12233a; }
+  </style>
+
+  <rect x="30" y="30" width="200" height="70" class="box" />
+  <text x="45" y="52" class="title">autores</text>
+  <text x="45" y="72" class="attr">id_autor (PK)</text>
+  <text x="45" y="90" class="attr">nombre (UNIQUE)</text>
+
+  <rect x="850" y="30" width="200" height="70" class="box" />
+  <text x="865" y="52" class="title">generos</text>
+  <text x="865" y="72" class="attr">id_genero (PK)</text>
+  <text x="865" y="90" class="attr">nombre (UNIQUE)</text>
+
+  <rect x="30" y="200" width="230" height="70" class="bridge" />
+  <text x="45" y="222" class="title">libro_autor</text>
+  <text x="45" y="242" class="attr">id_libro (FK), id_autor (FK)</text>
+  <text x="45" y="260" class="attr">PK (id_libro, id_autor)</text>
+
+  <rect x="820" y="200" width="230" height="70" class="bridge" />
+  <text x="835" y="222" class="title">libro_genero</text>
+  <text x="835" y="242" class="attr">id_libro (FK), id_genero (FK)</text>
+  <text x="835" y="260" class="attr">PK (id_libro, id_genero)</text>
+
+  <rect x="440" y="180" width="200" height="90" class="box" />
+  <text x="455" y="202" class="title">libros</text>
+  <text x="455" y="222" class="attr">id_libro (PK)</text>
+  <text x="455" y="240" class="attr">titulo (UNIQUE, CHECK)</text>
+
+  <rect x="440" y="380" width="200" height="90" class="box" />
+  <text x="455" y="402" class="title">prestamos</text>
+  <text x="455" y="422" class="attr">id_prestamo (PK)</text>
+  <text x="455" y="440" class="attr">id_libro (FK), id_usuario (FK)</text>
+  <text x="455" y="458" class="attr">fecha_devolucion (CHECK)</text>
+
+  <rect x="440" y="30" width="200" height="70" class="box" />
+  <text x="455" y="52" class="title">usuarios</text>
+  <text x="455" y="72" class="attr">id_usuario (PK)</text>
+  <text x="455" y="90" class="attr">nombre (UNIQUE)</text>
+
+  <path d="M230,235 H440" class="rel" />
+  <text x="300" y="227" class="lbl">N : M</text>
+
+  <path d="M850,235 H640" class="rel" />
+  <text x="700" y="227" class="lbl">N : M</text>
+
+  <path d="M130,100 V235" class="rel" />
+  <text x="140" y="170" class="lbl">1 : N</text>
+
+  <path d="M950,100 V235" class="rel" />
+  <text x="955" y="170" class="lbl">1 : N</text>
+
+  <path d="M540,270 V380" class="rel" />
+  <text x="550" y="330" class="lbl">1 : N (libro)</text>
+
+  <path d="M640,65 C750,65 750,425 640,425" class="rel" />
+  <text x="745" y="245" class="lbl">1 : N (usuario)</text>
+</svg>

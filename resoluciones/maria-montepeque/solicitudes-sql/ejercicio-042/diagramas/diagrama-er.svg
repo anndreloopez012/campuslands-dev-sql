@@ -1,0 +1,45 @@
+<svg viewBox="0 0 1000 320" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="20" width="210" height="90" class="box"/>
+  <text x="30" y="40" class="title">artistas</text>
+  <text x="30" y="58" class="attr">id_artista PK</text>
+  <text x="30" y="74" class="attr">nombre_artista UNIQUE</text>
+  <text x="30" y="90" class="attr">genero</text>
+
+  <rect x="330" y="20" width="230" height="100" class="box"/>
+  <text x="340" y="40" class="title">canciones</text>
+  <text x="340" y="58" class="attr">id_cancion PK</text>
+  <text x="340" y="74" class="attr">titulo + id_artista UNIQUE</text>
+  <text x="340" y="90" class="attr">id_artista FK</text>
+  <text x="340" y="106" class="attr">duracion_segundos</text>
+
+  <rect x="20" y="200" width="210" height="90" class="box"/>
+  <text x="30" y="220" class="title">usuarios</text>
+  <text x="30" y="238" class="attr">id_usuario PK</text>
+  <text x="30" y="254" class="attr">nombre_usuario, email UNIQUE</text>
+  <text x="30" y="270" class="attr">plan</text>
+
+  <rect x="700" y="110" width="260" height="150" class="box"/>
+  <text x="710" y="130" class="title">reproducciones</text>
+  <text x="710" y="148" class="attr">id_reproduccion PK</text>
+  <text x="710" y="164" class="attr">id_usuario FK</text>
+  <text x="710" y="180" class="attr">id_cancion FK</text>
+  <text x="710" y="196" class="attr">fecha_reproduccion</text>
+  <text x="710" y="212" class="attr">monto_regalia, estado</text>
+
+  <line x1="230" y1="65" x2="330" y2="65"/>
+  <text x="250" y="58" class="rel">1..N</text>
+
+  <line x1="560" y1="90" x2="700" y2="170"/>
+  <text x="590" y="120" class="rel">1..N</text>
+
+  <line x1="230" y1="245" x2="700" y2="220"/>
+  <text x="400" y="240" class="rel">1..N</text>
+</svg>

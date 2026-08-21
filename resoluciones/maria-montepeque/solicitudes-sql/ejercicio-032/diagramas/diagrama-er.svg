@@ -1,0 +1,36 @@
+<svg viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="70" width="200" height="90" class="box"/>
+  <text x="30" y="90" class="title">planes</text>
+  <text x="30" y="108" class="attr">id_plan PK</text>
+  <text x="30" y="124" class="attr">nombre_plan UNIQUE</text>
+  <text x="30" y="140" class="attr">precio_mensual</text>
+
+  <rect x="350" y="70" width="220" height="90" class="box"/>
+  <text x="360" y="90" class="title">alumnos</text>
+  <text x="360" y="108" class="attr">id_alumno PK</text>
+  <text x="360" y="124" class="attr">id_plan FK</text>
+  <text x="360" y="140" class="attr">nombre_completo UNIQUE</text>
+
+  <rect x="680" y="30" width="210" height="170" class="box"/>
+  <text x="690" y="50" class="title">pagos</text>
+  <text x="690" y="68" class="attr">id_pago PK</text>
+  <text x="690" y="84" class="attr">id_alumno FK</text>
+  <text x="690" y="100" class="attr">monto_pagado</text>
+  <text x="690" y="116" class="attr">fecha_pago</text>
+  <text x="690" y="132" class="attr">metodo_pago</text>
+  <text x="690" y="148" class="attr">estado</text>
+
+  <line x1="220" y1="115" x2="350" y2="115"/>
+  <text x="260" y="105" class="rel">1..N</text>
+
+  <line x1="570" y1="115" x2="680" y2="115"/>
+  <text x="610" y="105" class="rel">1..N</text>
+</svg>

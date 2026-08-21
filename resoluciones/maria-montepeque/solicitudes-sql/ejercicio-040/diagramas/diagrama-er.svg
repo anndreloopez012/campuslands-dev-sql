@@ -1,0 +1,36 @@
+<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="30" width="220" height="90" class="box"/>
+  <text x="30" y="50" class="title">formulas</text>
+  <text x="30" y="68" class="attr">id_formula PK</text>
+  <text x="30" y="84" class="attr">nombre_formula UNIQUE</text>
+  <text x="30" y="100" class="attr">tipo</text>
+
+  <rect x="20" y="190" width="220" height="90" class="box"/>
+  <text x="30" y="210" class="title">reactivos</text>
+  <text x="30" y="228" class="attr">id_reactivo PK</text>
+  <text x="30" y="244" class="attr">nombre_reactivo UNIQUE</text>
+  <text x="30" y="260" class="attr">unidad_medida</text>
+
+  <rect x="450" y="80" width="270" height="160" class="box"/>
+  <text x="460" y="100" class="title">muestras</text>
+  <text x="460" y="118" class="attr">id_muestra PK</text>
+  <text x="460" y="134" class="attr">id_formula FK</text>
+  <text x="460" y="150" class="attr">id_reactivo FK</text>
+  <text x="460" y="166" class="attr">fecha_analisis</text>
+  <text x="460" y="182" class="attr">concentracion (0-100)</text>
+  <text x="460" y="198" class="attr">resultado</text>
+
+  <line x1="240" y1="75" x2="450" y2="150"/>
+  <text x="280" y="100" class="rel">1..N</text>
+
+  <line x1="240" y1="235" x2="450" y2="190"/>
+  <text x="280" y="240" class="rel">1..N</text>
+</svg>

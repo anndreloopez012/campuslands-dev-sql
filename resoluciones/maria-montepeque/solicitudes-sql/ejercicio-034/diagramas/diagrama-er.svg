@@ -1,0 +1,35 @@
+<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="30" width="220" height="90" class="box"/>
+  <text x="30" y="50" class="title">clientes</text>
+  <text x="30" y="68" class="attr">id_cliente PK</text>
+  <text x="30" y="84" class="attr">nombre_cliente UNIQUE</text>
+  <text x="30" y="100" class="attr">email</text>
+
+  <rect x="20" y="190" width="220" height="90" class="box"/>
+  <text x="30" y="210" class="title">artistas</text>
+  <text x="30" y="228" class="attr">id_artista PK</text>
+  <text x="30" y="244" class="attr">nombre_artista UNIQUE</text>
+  <text x="30" y="260" class="attr">especialidad</text>
+
+  <rect x="450" y="90" width="260" height="150" class="box"/>
+  <text x="460" y="110" class="title">proyectos</text>
+  <text x="460" y="128" class="attr">id_proyecto PK</text>
+  <text x="460" y="144" class="attr">id_cliente FK</text>
+  <text x="460" y="160" class="attr">id_artista FK</text>
+  <text x="460" y="176" class="attr">nombre_proyecto, fecha_entrega</text>
+  <text x="460" y="192" class="attr">presupuesto, estado</text>
+
+  <line x1="240" y1="80" x2="450" y2="150"/>
+  <text x="280" y="105" class="rel">1..N</text>
+
+  <line x1="240" y1="235" x2="450" y2="190"/>
+  <text x="280" y="240" class="rel">1..N</text>
+</svg>

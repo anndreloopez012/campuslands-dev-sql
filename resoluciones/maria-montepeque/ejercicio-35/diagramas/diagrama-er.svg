@@ -1,0 +1,50 @@
+<svg viewBox="0 0 1040 480" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { stroke: #33475b; stroke-width: 1.5; fill: none; }
+    .lbl { font-size: 11px; fill: #12233a; }
+  </style>
+
+  <rect x="30" y="30" width="220" height="70" class="box" />
+  <text x="45" y="52" class="title">categorias</text>
+  <text x="45" y="72" class="attr">id_categoria (PK)</text>
+  <text x="45" y="90" class="attr">nombre (UNIQUE)</text>
+
+  <rect x="790" y="30" width="220" height="80" class="box" />
+  <text x="805" y="52" class="title">proveedores</text>
+  <text x="805" y="72" class="attr">id_proveedor (PK)</text>
+  <text x="805" y="90" class="attr">nombre (UNIQUE)</text>
+  <text x="805" y="108" class="attr">telefono (UNIQUE)</text>
+
+  <rect x="390" y="180" width="260" height="110" class="box" />
+  <text x="405" y="202" class="title">productos</text>
+  <text x="405" y="222" class="attr">id_producto (PK)</text>
+  <text x="405" y="240" class="attr">nombre (UNIQUE)</text>
+  <text x="405" y="258" class="attr">id_categoria (FK), id_proveedor (FK)</text>
+
+  <rect x="790" y="360" width="220" height="70" class="box" />
+  <text x="805" y="382" class="title">bodegas</text>
+  <text x="805" y="402" class="attr">id_bodega (PK)</text>
+  <text x="805" y="420" class="attr">nombre (UNIQUE)</text>
+
+  <rect x="390" y="360" width="260" height="120" class="box" />
+  <text x="405" y="382" class="title">movimientos</text>
+  <text x="405" y="402" class="attr">id_movimiento (PK)</text>
+  <text x="405" y="420" class="attr">id_producto (FK), id_bodega (FK)</text>
+  <text x="405" y="438" class="attr">tipo_movimiento (CHECK)</text>
+  <text x="405" y="456" class="attr">cantidad (CHECK), fecha_movimiento (CHECK)</text>
+
+  <path d="M250,70 C330,70 330,220 390,220" class="rel" />
+  <text x="290" y="180" class="lbl">1 : N</text>
+
+  <path d="M790,70 C700,70 700,220 650,220" class="rel" />
+  <text x="740" y="180" class="lbl">1 : N</text>
+
+  <path d="M520,290 V360" class="rel" />
+  <text x="530" y="330" class="lbl">1 : N</text>
+
+  <path d="M790,395 H650" class="rel" />
+  <text x="700" y="387" class="lbl">1 : N</text>
+</svg>

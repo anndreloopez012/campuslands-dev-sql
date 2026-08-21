@@ -1,0 +1,49 @@
+<svg viewBox="0 0 1040 480" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { stroke: #33475b; stroke-width: 1.5; fill: none; }
+    .lbl { font-size: 11px; fill: #12233a; }
+  </style>
+
+  <rect x="30" y="30" width="220" height="70" class="box" />
+  <text x="45" y="52" class="title">huespedes</text>
+  <text x="45" y="72" class="attr">id_huesped (PK)</text>
+  <text x="45" y="90" class="attr">nombre, documento (UNIQUE)</text>
+
+  <rect x="790" y="30" width="220" height="70" class="box" />
+  <text x="805" y="52" class="title">habitaciones</text>
+  <text x="805" y="72" class="attr">id_habitacion (PK)</text>
+  <text x="805" y="90" class="attr">numero (UNIQUE)</text>
+
+  <rect x="390" y="180" width="260" height="100" class="box" />
+  <text x="405" y="202" class="title">reservas</text>
+  <text x="405" y="222" class="attr">id_reserva (PK)</text>
+  <text x="405" y="240" class="attr">id_huesped (FK)</text>
+  <text x="405" y="258" class="attr">id_habitacion (FK)</text>
+
+  <rect x="790" y="360" width="220" height="80" class="box" />
+  <text x="805" y="382" class="title">servicios</text>
+  <text x="805" y="402" class="attr">id_servicio (PK)</text>
+  <text x="805" y="420" class="attr">nombre (UNIQUE), costo (CHECK)</text>
+
+  <rect x="390" y="360" width="260" height="120" class="box" />
+  <text x="405" y="382" class="title">detalle_servicio</text>
+  <text x="405" y="402" class="attr">id_detalle (PK)</text>
+  <text x="405" y="420" class="attr">id_reserva (FK), id_servicio (FK)</text>
+  <text x="405" y="438" class="attr">fecha (CHECK), costo (CHECK)</text>
+  <text x="405" y="456" class="attr">UNIQUE (id_reserva, id_servicio, fecha)</text>
+
+  <path d="M250,70 C330,70 330,220 390,220" class="rel" />
+  <text x="290" y="180" class="lbl">1 : N</text>
+
+  <path d="M790,70 C700,70 700,220 650,220" class="rel" />
+  <text x="740" y="180" class="lbl">1 : N</text>
+
+  <path d="M520,280 V360" class="rel" />
+  <text x="530" y="330" class="lbl">1 : N</text>
+
+  <path d="M790,400 H650" class="rel" />
+  <text x="700" y="392" class="lbl">1 : N</text>
+</svg>

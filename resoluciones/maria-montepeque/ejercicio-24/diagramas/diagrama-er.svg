@@ -1,0 +1,44 @@
+<svg viewBox="0 0 960 440" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { stroke: #33475b; stroke-width: 1.5; fill: none; }
+    .lbl { font-size: 11px; fill: #12233a; }
+  </style>
+
+  <rect x="30" y="30" width="220" height="80" class="box" />
+  <text x="45" y="52" class="title">departamentos</text>
+  <text x="45" y="72" class="attr">id_departamento (PK)</text>
+  <text x="45" y="90" class="attr">nombre (UNIQUE)</text>
+
+  <rect x="30" y="250" width="220" height="100" class="box" />
+  <text x="45" y="272" class="title">cargos</text>
+  <text x="45" y="292" class="attr">id_cargo (PK)</text>
+  <text x="45" y="310" class="attr">nombre (UNIQUE)</text>
+  <text x="45" y="328" class="attr">salario_base (CHECK)</text>
+
+  <rect x="370" y="150" width="240" height="130" class="box" />
+  <text x="385" y="172" class="title">empleados</text>
+  <text x="385" y="192" class="attr">id_empleado (PK)</text>
+  <text x="385" y="210" class="attr">id_departamento (FK)</text>
+  <text x="385" y="228" class="attr">id_cargo (FK)</text>
+  <text x="385" y="246" class="attr">dpi (UNIQUE), fecha_ingreso</text>
+
+  <rect x="700" y="150" width="220" height="140" class="box" />
+  <text x="715" y="172" class="title">contratos</text>
+  <text x="715" y="192" class="attr">id_contrato (PK)</text>
+  <text x="715" y="210" class="attr">id_empleado (FK)</text>
+  <text x="715" y="228" class="attr">tipo (CHECK), salario (CHECK)</text>
+  <text x="715" y="246" class="attr">fecha_inicio, fecha_fin</text>
+  <text x="715" y="264" class="attr">estado (CHECK)</text>
+
+  <path d="M250,70 C310,70 310,200 370,200" class="rel" />
+  <text x="290" y="140" class="lbl">1 : N</text>
+
+  <path d="M250,300 C310,300 310,230 370,230" class="rel" />
+  <text x="290" y="290" class="lbl">1 : N</text>
+
+  <path d="M610,215 H700" class="rel" />
+  <text x="640" y="207" class="lbl">1 : N</text>
+</svg>
