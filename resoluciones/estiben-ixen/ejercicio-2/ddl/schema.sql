@@ -23,3 +23,23 @@ create table productos (
     fecha_vencimiento datetime
 );
 
+create table categorias (
+
+    id_categoria int auto_increment primary key,
+    id_producto int,
+    categoria_producto varchar(60),
+
+    foreign key (id_producto) references productos (id_producto)
+);
+
+create table ventas (
+    id_venta int auto_increment primary key,
+    id_cliente int,
+    id_producto int,
+    id_categoria int,
+    fecha_venta datetime default current_timestamp,
+
+    foreign key (id_cliente) references clientes(id_cliente),
+    foreign key (id_producto) references productos(id_producto),
+    foreign key (id_categoria) references categorias(id_categoria)
+);
