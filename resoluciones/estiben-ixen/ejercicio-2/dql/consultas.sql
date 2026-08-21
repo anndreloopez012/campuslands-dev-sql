@@ -1,29 +1,25 @@
-.headers on
-.mode column
 
--- Ejercicio 01: CineMax SQLite
--- Escriba aqui las consultas obligatorias del README.
+-- 1. Listar todos los registros principales de la entidad central.
 
--- 1. Listar todos los registros principales.
+-- 2. Mostrar solo dos columnas relevantes de esa entidad.
 
--- 2. Mostrar solo dos columnas relevantes.
+-- 3. Filtrar registros por una condicion numerica o de fecha.
 
--- 3. Filtrar por condicion numerica o de fecha.
+-- 4. Ordenar resultados alfabeticamente o por fecha.
 
--- 4. Ordenar resultados.
-
--- 5. Mostrar top 5 por una metrica.
+-- 5. Mostrar los 5 registros mas importantes segun una metrica.
 
 -- 6. Contar registros totales.
 
--- 7. Calcular promedio, minimo o maximo.
+-- 7. Calcular promedio, minimo o maximo de una columna numerica.
 
--- 8. Agrupar con GROUP BY.
+-- 8. Agrupar registros con `GROUP BY`.
 
--- 9. Relacionar minimo dos tablas con JOIN.
+-- 9. Relacionar minimo dos tablas con `JOIN`.
 
--- 10. Usar WHERE, ORDER BY y LIMIT.
+-- 10. Crear una consulta con `WHERE`, `ORDER BY` y `LIMIT`.
 
--- 11. Crear reporte con alias.
+-- 11. Crear un reporte con alias legibles para las columnas.
 
--- 12. Consulta para decision del negocio.
+-- 12. Crear una consulta que ayude a tomar una decision del negocio.
+
