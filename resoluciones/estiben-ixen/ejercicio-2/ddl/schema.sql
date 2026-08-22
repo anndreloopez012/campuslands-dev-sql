@@ -20,7 +20,6 @@ create table productos (
     nombre_producto varchar(60) not null,
     cantidad_producto int check(cantidad_producto > 1),
     precio int,
-    fecha_vencimiento datetime
 );
 
 create table categorias (
