@@ -1,0 +1,29 @@
+PRAGMA foreign_keys = ON;
+
+-- Ejercicio 023: Clanes Shooter
+DROP TABLE IF EXISTS guerras;
+DROP TABLE IF EXISTS jugadores;
+DROP TABLE IF EXISTS clanes;
+
+CREATE TABLE clanes (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nombre TEXT NOT NULL UNIQUE,
+	tag TEXT NOT NULL UNIQUE
+);
+
+CREATE TABLE jugadores (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	clan_id INTEGER NOT NULL,
+	gamertag TEXT NOT NULL UNIQUE,
+	FOREIGN KEY (clan_id) REFERENCES clanes(id)
+);
+
+CREATE TABLE guerras (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	clan_1_id INTEGER NOT NULL,
+	clan_2_id INTEGER NOT NULL,
+	mapa TEXT NOT NULL,
+	ganador_id INTEGER NOT NULL,
+	FOREIGN KEY (clan_1_id) REFERENCES clanes(id),
+	FOREIGN KEY (clan_2_id) REFERENCES clanes(id)
+);
