@@ -1,0 +1,41 @@
+<svg viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="100" width="200" height="90" class="box"/>
+  <text x="30" y="120" class="title">usuarios</text>
+  <text x="30" y="138" class="attr">id_usuario PK</text>
+  <text x="30" y="154" class="attr">nombre_usuario UNIQUE</text>
+  <text x="30" y="170" class="attr">email UNIQUE</text>
+
+  <rect x="290" y="100" width="200" height="90" class="box"/>
+  <text x="300" y="120" class="title">clubes</text>
+  <text x="300" y="138" class="attr">id_club PK</text>
+  <text x="300" y="154" class="attr">id_usuario FK</text>
+  <text x="300" y="170" class="attr">nombre_club UNIQUE, division</text>
+
+  <rect x="620" y="30" width="250" height="230" class="box"/>
+  <text x="630" y="50" class="title">partidos</text>
+  <text x="630" y="68" class="attr">id_partido PK</text>
+  <text x="630" y="84" class="attr">id_club_local FK -&gt; clubes</text>
+  <text x="630" y="100" class="attr">id_club_visitante FK -&gt; clubes</text>
+  <text x="630" y="116" class="attr">jornada</text>
+  <text x="630" y="132" class="attr">goles_local</text>
+  <text x="630" y="148" class="attr">goles_visitante</text>
+  <text x="630" y="164" class="attr">fecha_partido</text>
+  <text x="630" y="180" class="attr">estado</text>
+
+  <line x1="220" y1="145" x2="290" y2="145"/>
+  <text x="230" y="135" class="rel">1..N</text>
+
+  <line x1="490" y1="130" x2="620" y2="110"/>
+  <text x="530" y="115" class="rel">1..N (local)</text>
+
+  <line x1="490" y1="160" x2="620" y2="170"/>
+  <text x="530" y="185" class="rel">1..N (visitante)</text>
+</svg>

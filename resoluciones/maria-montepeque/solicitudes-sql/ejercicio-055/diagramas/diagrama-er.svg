@@ -1,0 +1,45 @@
+<svg viewBox="0 0 1000 320" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="20" width="220" height="100" class="box"/>
+  <text x="30" y="40" class="title">peliculas</text>
+  <text x="30" y="58" class="attr">id_pelicula PK</text>
+  <text x="30" y="74" class="attr">titulo UNIQUE</text>
+  <text x="30" y="90" class="attr">duracion_minutos</text>
+  <text x="30" y="106" class="attr">clasificacion</text>
+
+  <rect x="20" y="200" width="220" height="90" class="box"/>
+  <text x="30" y="220" class="title">salas</text>
+  <text x="30" y="238" class="attr">id_sala PK</text>
+  <text x="30" y="254" class="attr">nombre_sala UNIQUE</text>
+  <text x="30" y="270" class="attr">capacidad</text>
+
+  <rect x="380" y="90" width="230" height="130" class="box"/>
+  <text x="390" y="110" class="title">funciones</text>
+  <text x="390" y="128" class="attr">id_funcion PK</text>
+  <text x="390" y="144" class="attr">id_pelicula FK, id_sala FK</text>
+  <text x="390" y="160" class="attr">fecha_hora</text>
+  <text x="390" y="176" class="attr">precio_boleto, estado</text>
+
+  <rect x="700" y="110" width="260" height="120" class="box"/>
+  <text x="710" y="130" class="title">boletos</text>
+  <text x="710" y="148" class="attr">id_boleto PK</text>
+  <text x="710" y="164" class="attr">id_funcion FK</text>
+  <text x="710" y="180" class="attr">asiento + id_funcion UNIQUE</text>
+  <text x="710" y="196" class="attr">nombre_cliente, estado</text>
+
+  <line x1="240" y1="70" x2="380" y2="150"/>
+  <text x="280" y="100" class="rel">1..N</text>
+
+  <line x1="240" y1="245" x2="380" y2="190"/>
+  <text x="280" y="240" class="rel">1..N</text>
+
+  <line x1="610" y1="155" x2="700" y2="165"/>
+  <text x="620" y="148" class="rel">1..N</text>
+</svg>

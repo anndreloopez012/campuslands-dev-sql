@@ -1,0 +1,45 @@
+<svg viewBox="0 0 1000 260" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="70" width="190" height="90" class="box"/>
+  <text x="30" y="90" class="title">artistas</text>
+  <text x="30" y="108" class="attr">id_artista PK</text>
+  <text x="30" y="124" class="attr">nombre UNIQUE</text>
+  <text x="30" y="140" class="attr">pais</text>
+
+  <rect x="270" y="60" width="200" height="110" class="box"/>
+  <text x="280" y="80" class="title">albumes</text>
+  <text x="280" y="98" class="attr">id_album PK</text>
+  <text x="280" y="114" class="attr">id_artista FK</text>
+  <text x="280" y="130" class="attr">titulo, anio_lanzamiento</text>
+  <text x="280" y="146" class="attr">UNIQUE(id_artista,titulo)</text>
+
+  <rect x="530" y="60" width="210" height="110" class="box"/>
+  <text x="540" y="80" class="title">canciones</text>
+  <text x="540" y="98" class="attr">id_cancion PK</text>
+  <text x="540" y="114" class="attr">id_album FK</text>
+  <text x="540" y="130" class="attr">titulo, duracion_segundos, genero</text>
+  <text x="540" y="146" class="attr">UNIQUE(id_album,titulo)</text>
+
+  <rect x="800" y="60" width="180" height="110" class="box"/>
+  <text x="810" y="80" class="title">reproducciones</text>
+  <text x="810" y="98" class="attr">id_reproduccion PK</text>
+  <text x="810" y="114" class="attr">id_cancion FK</text>
+  <text x="810" y="130" class="attr">usuario, fecha_hora</text>
+  <text x="810" y="146" class="attr">dispositivo (CHECK)</text>
+
+  <line x1="210" y1="115" x2="270" y2="115"/>
+  <text x="220" y="105" class="rel">1..N</text>
+
+  <line x1="470" y1="115" x2="530" y2="115"/>
+  <text x="480" y="105" class="rel">1..N</text>
+
+  <line x1="740" y1="115" x2="800" y2="115"/>
+  <text x="750" y="105" class="rel">1..N</text>
+</svg>

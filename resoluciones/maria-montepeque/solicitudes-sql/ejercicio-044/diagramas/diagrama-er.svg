@@ -1,0 +1,46 @@
+<svg viewBox="0 0 1150 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="90" width="210" height="90" class="box"/>
+  <text x="30" y="110" class="title">clientes</text>
+  <text x="30" y="128" class="attr">id_cliente PK</text>
+  <text x="30" y="144" class="attr">nombre_cliente UNIQUE</text>
+  <text x="30" y="160" class="attr">email UNIQUE</text>
+
+  <rect x="310" y="90" width="220" height="100" class="box"/>
+  <text x="320" y="110" class="title">proyectos</text>
+  <text x="320" y="128" class="attr">id_proyecto PK</text>
+  <text x="320" y="144" class="attr">nombre_proyecto UNIQUE</text>
+  <text x="320" y="160" class="attr">id_cliente FK</text>
+  <text x="320" y="176" class="attr">fecha_inicio</text>
+
+  <rect x="610" y="80" width="230" height="120" class="box"/>
+  <text x="620" y="100" class="title">renders</text>
+  <text x="620" y="118" class="attr">id_render PK</text>
+  <text x="620" y="134" class="attr">id_proyecto FK</text>
+  <text x="620" y="150" class="attr">nombre_render</text>
+  <text x="620" y="166" class="attr">fecha_entrega_estimada</text>
+  <text x="620" y="182" class="attr">estado</text>
+
+  <rect x="920" y="90" width="210" height="110" class="box"/>
+  <text x="930" y="110" class="title">revisiones</text>
+  <text x="930" y="128" class="attr">id_revision PK</text>
+  <text x="930" y="144" class="attr">id_render FK</text>
+  <text x="930" y="160" class="attr">fecha_revision, comentario</text>
+  <text x="930" y="176" class="attr">resultado</text>
+
+  <line x1="230" y1="135" x2="310" y2="140"/>
+  <text x="245" y="128" class="rel">1..N</text>
+
+  <line x1="530" y1="140" x2="610" y2="140"/>
+  <text x="545" y="133" class="rel">1..N</text>
+
+  <line x1="840" y1="140" x2="920" y2="145"/>
+  <text x="855" y="133" class="rel">1..N</text>
+</svg>

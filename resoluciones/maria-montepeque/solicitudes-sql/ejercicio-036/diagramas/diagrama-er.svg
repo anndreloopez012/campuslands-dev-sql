@@ -1,0 +1,36 @@
+<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="30" width="220" height="90" class="box"/>
+  <text x="30" y="50" class="title">clientes</text>
+  <text x="30" y="68" class="attr">id_cliente PK</text>
+  <text x="30" y="84" class="attr">nombre_cliente UNIQUE</text>
+  <text x="30" y="100" class="attr">telefono</text>
+
+  <rect x="20" y="190" width="220" height="90" class="box"/>
+  <text x="30" y="210" class="title">menus</text>
+  <text x="30" y="228" class="attr">id_menu PK</text>
+  <text x="30" y="244" class="attr">nombre_platillo UNIQUE</text>
+  <text x="30" y="260" class="attr">categoria, precio</text>
+
+  <rect x="460" y="80" width="270" height="170" class="box"/>
+  <text x="470" y="100" class="title">pedidos</text>
+  <text x="470" y="118" class="attr">id_pedido PK</text>
+  <text x="470" y="134" class="attr">id_cliente FK</text>
+  <text x="470" y="150" class="attr">id_menu FK</text>
+  <text x="470" y="166" class="attr">repartidor, fecha_pedido</text>
+  <text x="470" y="182" class="attr">monto_pagado, estado</text>
+  <text x="470" y="198" class="attr">calificacion</text>
+
+  <line x1="240" y1="75" x2="460" y2="150"/>
+  <text x="280" y="100" class="rel">1..N</text>
+
+  <line x1="240" y1="235" x2="460" y2="190"/>
+  <text x="280" y="240" class="rel">1..N</text>
+</svg>

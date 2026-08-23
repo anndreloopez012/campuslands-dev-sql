@@ -1,0 +1,44 @@
+<svg viewBox="0 0 960 440" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { stroke: #33475b; stroke-width: 1.5; fill: none; }
+    .lbl { font-size: 11px; fill: #12233a; }
+  </style>
+
+  <rect x="30" y="30" width="220" height="110" class="box" />
+  <text x="45" y="52" class="title">lugares</text>
+  <text x="45" y="72" class="attr">id_lugar (PK)</text>
+  <text x="45" y="90" class="attr">nombre (UNIQUE), ciudad</text>
+  <text x="45" y="108" class="attr">capacidad (CHECK)</text>
+
+  <rect x="340" y="30" width="230" height="130" class="box" />
+  <text x="355" y="52" class="title">eventos</text>
+  <text x="355" y="72" class="attr">id_evento (PK)</text>
+  <text x="355" y="90" class="attr">id_lugar (FK)</text>
+  <text x="355" y="108" class="attr">nombre, fecha</text>
+  <text x="355" y="126" class="attr">precio_base (CHECK)</text>
+
+  <rect x="30" y="250" width="220" height="100" class="box" />
+  <text x="45" y="272" class="title">asistentes</text>
+  <text x="45" y="292" class="attr">id_asistente (PK)</text>
+  <text x="45" y="310" class="attr">nombre</text>
+  <text x="45" y="328" class="attr">correo (UNIQUE)</text>
+
+  <rect x="340" y="250" width="230" height="130" class="box" />
+  <text x="355" y="272" class="title">boletos</text>
+  <text x="355" y="292" class="attr">id_boleto (PK)</text>
+  <text x="355" y="310" class="attr">id_evento (FK), id_asistente (FK)</text>
+  <text x="355" y="328" class="attr">precio (CHECK), fecha_compra</text>
+  <text x="355" y="346" class="attr">estado (CHECK)</text>
+
+  <path d="M250,90 H340" class="rel" />
+  <text x="270" y="82" class="lbl">1 : N</text>
+
+  <path d="M250,300 H340" class="rel" />
+  <text x="270" y="292" class="lbl">1 : N</text>
+
+  <path d="M455,160 V250" class="rel" />
+  <text x="465" y="210" class="lbl">1 : N</text>
+</svg>

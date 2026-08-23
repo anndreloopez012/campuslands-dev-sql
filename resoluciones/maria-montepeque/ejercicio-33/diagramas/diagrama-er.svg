@@ -1,0 +1,60 @@
+<svg viewBox="0 0 1040 520" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { stroke: #33475b; stroke-width: 1.5; fill: none; }
+    .lbl { font-size: 11px; fill: #12233a; }
+  </style>
+
+  <rect x="30" y="30" width="220" height="90" class="box" />
+  <text x="45" y="52" class="title">estudiantes</text>
+  <text x="45" y="72" class="attr">id_estudiante (PK)</text>
+  <text x="45" y="90" class="attr">nombre</text>
+  <text x="45" y="108" class="attr">documento (UNIQUE, CHECK)</text>
+
+  <rect x="410" y="30" width="220" height="70" class="box" />
+  <text x="425" y="52" class="title">rutas</text>
+  <text x="425" y="72" class="attr">id_ruta (PK)</text>
+  <text x="425" y="90" class="attr">nombre (UNIQUE)</text>
+
+  <rect x="790" y="30" width="220" height="70" class="box" />
+  <text x="805" y="52" class="title">trainers</text>
+  <text x="805" y="72" class="attr">id_trainer (PK)</text>
+  <text x="805" y="90" class="attr">nombre (UNIQUE)</text>
+
+  <rect x="390" y="200" width="260" height="120" class="box" />
+  <text x="405" y="222" class="title">matriculas</text>
+  <text x="405" y="242" class="attr">id_matricula (PK)</text>
+  <text x="405" y="260" class="attr">id_estudiante (FK)</text>
+  <text x="405" y="278" class="attr">id_ruta (FK), id_trainer (FK)</text>
+  <text x="405" y="296" class="attr">UNIQUE (id_estudiante, id_ruta)</text>
+
+  <rect x="790" y="370" width="220" height="90" class="box" />
+  <text x="805" y="392" class="title">modulos</text>
+  <text x="805" y="412" class="attr">id_modulo (PK)</text>
+  <text x="805" y="430" class="attr">nombre (UNIQUE)</text>
+
+  <rect x="390" y="370" width="260" height="140" class="box" />
+  <text x="405" y="392" class="title">notas</text>
+  <text x="405" y="412" class="attr">id_nota (PK)</text>
+  <text x="405" y="430" class="attr">id_matricula (FK), id_modulo (FK)</text>
+  <text x="405" y="448" class="attr">horario (CHECK formato HH:MM)</text>
+  <text x="405" y="466" class="attr">nota (CHECK 0-100)</text>
+  <text x="405" y="484" class="attr">UNIQUE (id_matricula, id_modulo)</text>
+
+  <path d="M250,90 C330,90 330,240 390,240" class="rel" />
+  <text x="290" y="180" class="lbl">1 : N</text>
+
+  <path d="M520,100 V200" class="rel" />
+  <text x="530" y="160" class="lbl">1 : N</text>
+
+  <path d="M900,100 C900,160 700,190 650,235" class="rel" />
+  <text x="820" y="150" class="lbl">1 : N</text>
+
+  <path d="M520,320 V370" class="rel" />
+  <text x="530" y="350" class="lbl">1 : N</text>
+
+  <path d="M790,410 H650" class="rel" />
+  <text x="680" y="402" class="lbl">1 : N</text>
+</svg>

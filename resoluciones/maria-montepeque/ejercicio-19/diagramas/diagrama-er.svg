@@ -1,0 +1,43 @@
+<svg viewBox="0 0 960 440" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { stroke: #33475b; stroke-width: 1.5; fill: none; }
+    .lbl { font-size: 11px; fill: #12233a; }
+  </style>
+
+  <rect x="30" y="30" width="220" height="110" class="box" />
+  <text x="45" y="52" class="title">estudiantes</text>
+  <text x="45" y="72" class="attr">id_estudiante (PK)</text>
+  <text x="45" y="90" class="attr">carnet (UNIQUE)</text>
+  <text x="45" y="108" class="attr">correo (UNIQUE)</text>
+
+  <rect x="30" y="270" width="220" height="100" class="box" />
+  <text x="45" y="292" class="title">materias</text>
+  <text x="45" y="312" class="attr">id_materia (PK)</text>
+  <text x="45" y="330" class="attr">nombre (UNIQUE)</text>
+  <text x="45" y="348" class="attr">creditos (CHECK)</text>
+
+  <rect x="700" y="150" width="220" height="100" class="box" />
+  <text x="715" y="172" class="title">profesores</text>
+  <text x="715" y="192" class="attr">id_profesor (PK)</text>
+  <text x="715" y="210" class="attr">nombre</text>
+  <text x="715" y="228" class="attr">correo (UNIQUE)</text>
+
+  <rect x="370" y="150" width="250" height="130" class="box" />
+  <text x="385" y="172" class="title">notas</text>
+  <text x="385" y="192" class="attr">id_nota (PK)</text>
+  <text x="385" y="210" class="attr">id_estudiante (FK), id_materia (FK)</text>
+  <text x="385" y="228" class="attr">id_profesor (FK)</text>
+  <text x="385" y="246" class="attr">nota (CHECK), fecha</text>
+
+  <path d="M250,90 C310,90 310,200 370,200" class="rel" />
+  <text x="290" y="140" class="lbl">1 : N</text>
+
+  <path d="M250,310 C310,310 310,230 370,230" class="rel" />
+  <text x="290" y="290" class="lbl">1 : N</text>
+
+  <path d="M620,215 H700" class="rel" />
+  <text x="640" y="207" class="lbl">1 : N</text>
+</svg>

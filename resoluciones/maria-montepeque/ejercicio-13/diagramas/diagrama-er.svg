@@ -1,0 +1,47 @@
+<svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { stroke: #33475b; stroke-width: 1.5; fill: none; }
+    .lbl { font-size: 11px; fill: #12233a; }
+  </style>
+
+  <rect x="30" y="30" width="200" height="120" class="box" />
+  <text x="45" y="52" class="title">clientes</text>
+  <text x="45" y="72" class="attr">id_cliente (PK)</text>
+  <text x="45" y="90" class="attr">nombre</text>
+  <text x="45" y="108" class="attr">dpi (UNIQUE)</text>
+  <text x="45" y="126" class="attr">correo (UNIQUE)</text>
+
+  <rect x="340" y="30" width="200" height="130" class="box" />
+  <text x="355" y="52" class="title">cuentas</text>
+  <text x="355" y="72" class="attr">id_cuenta (PK)</text>
+  <text x="355" y="90" class="attr">id_cliente (FK)</text>
+  <text x="355" y="108" class="attr">numero_cuenta (UNIQUE)</text>
+  <text x="355" y="126" class="attr">tipo (CHECK)</text>
+  <text x="355" y="144" class="attr">saldo (CHECK)</text>
+
+  <rect x="340" y="250" width="220" height="120" class="box" />
+  <text x="355" y="272" class="title">transacciones</text>
+  <text x="355" y="292" class="attr">id_transaccion (PK)</text>
+  <text x="355" y="310" class="attr">id_cuenta (FK)</text>
+  <text x="355" y="328" class="attr">tipo (CHECK)</text>
+  <text x="355" y="346" class="attr">monto (CHECK), fecha</text>
+
+  <rect x="650" y="30" width="220" height="120" class="box" />
+  <text x="665" y="52" class="title">tarjetas</text>
+  <text x="665" y="72" class="attr">id_tarjeta (PK)</text>
+  <text x="665" y="90" class="attr">id_cuenta (FK)</text>
+  <text x="665" y="108" class="attr">numero_tarjeta (UNIQUE)</text>
+  <text x="665" y="126" class="attr">tipo (CHECK), fecha_expira</text>
+
+  <path d="M230,90 H340" class="rel" />
+  <text x="255" y="82" class="lbl">1 : N</text>
+
+  <path d="M440,160 V250" class="rel" />
+  <text x="450" y="210" class="lbl">1 : N</text>
+
+  <path d="M540,90 H650" class="rel" />
+  <text x="560" y="82" class="lbl">1 : N</text>
+</svg>

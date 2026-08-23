@@ -1,0 +1,28 @@
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="100" width="200" height="90" class="box"/>
+  <text x="30" y="120" class="title">equipos</text>
+  <text x="30" y="138" class="attr">id_equipo PK</text>
+  <text x="30" y="154" class="attr">nombre_equipo UNIQUE</text>
+  <text x="30" y="170" class="attr">region</text>
+
+  <rect x="380" y="20" width="240" height="240" class="box"/>
+  <text x="390" y="40" class="title">jugadores</text>
+  <text x="390" y="58" class="attr">id_jugador PK</text>
+  <text x="390" y="74" class="attr">id_equipo FK</text>
+  <text x="390" y="90" class="attr">nickname UNIQUE</text>
+  <text x="390" y="106" class="attr">nombre_real</text>
+  <text x="390" y="122" class="attr">rol</text>
+  <text x="390" y="138" class="attr">puntos_totales</text>
+  <text x="390" y="154" class="attr">estado</text>
+
+  <line x1="220" y1="145" x2="380" y2="145"/>
+  <text x="260" y="135" class="rel">1..N</text>
+</svg>

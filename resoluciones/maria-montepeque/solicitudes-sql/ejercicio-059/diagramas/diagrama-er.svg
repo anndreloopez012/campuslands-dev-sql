@@ -1,0 +1,44 @@
+<svg viewBox="0 0 1050 320" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="90" width="210" height="90" class="box"/>
+  <text x="30" y="110" class="title">clientes</text>
+  <text x="30" y="128" class="attr">id_cliente PK</text>
+  <text x="30" y="144" class="attr">nombre_cliente UNIQUE</text>
+  <text x="30" y="160" class="attr">email</text>
+
+  <rect x="330" y="90" width="220" height="100" class="box"/>
+  <text x="340" y="110" class="title">proyectos</text>
+  <text x="340" y="128" class="attr">id_proyecto PK</text>
+  <text x="340" y="144" class="attr">id_cliente FK</text>
+  <text x="340" y="160" class="attr">nombre_proyecto UNIQUE</text>
+  <text x="340" y="176" class="attr">fecha_inicio, estado</text>
+
+  <rect x="20" y="230" width="210" height="90" class="box"/>
+  <text x="30" y="250" class="title">artistas</text>
+  <text x="30" y="268" class="attr">id_artista PK</text>
+  <text x="30" y="284" class="attr">nombre_artista UNIQUE</text>
+  <text x="30" y="300" class="attr">especialidad</text>
+
+  <rect x="680" y="110" width="300" height="150" class="box"/>
+  <text x="690" y="130" class="title">tareas</text>
+  <text x="690" y="148" class="attr">id_tarea PK</text>
+  <text x="690" y="164" class="attr">id_proyecto FK, id_artista FK</text>
+  <text x="690" y="180" class="attr">descripcion, fecha_asignacion</text>
+  <text x="690" y="196" class="attr">estado, fecha_ultimo_cambio</text>
+
+  <line x1="240" y1="140" x2="330" y2="140"/>
+  <text x="260" y="133" class="rel">1..N</text>
+
+  <line x1="550" y1="150" x2="680" y2="170"/>
+  <text x="590" y="143" class="rel">1..N</text>
+
+  <line x1="230" y1="275" x2="680" y2="210"/>
+  <text x="400" y="270" class="rel">1..N</text>
+</svg>

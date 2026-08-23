@@ -1,0 +1,50 @@
+<svg viewBox="0 0 960 440" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { stroke: #33475b; stroke-width: 1.5; fill: none; }
+    .lbl { font-size: 11px; fill: #12233a; }
+  </style>
+
+  <rect x="30" y="160" width="220" height="120" class="box" />
+  <text x="45" y="182" class="title">usuarios</text>
+  <text x="45" y="202" class="attr">id_usuario (PK)</text>
+  <text x="45" y="220" class="attr">nombre_usuario (UNIQUE)</text>
+  <text x="45" y="238" class="attr">correo (UNIQUE)</text>
+  <text x="45" y="256" class="attr">fecha_registro</text>
+
+  <rect x="370" y="30" width="240" height="120" class="box" />
+  <text x="385" y="52" class="title">publicaciones</text>
+  <text x="385" y="72" class="attr">id_publicacion (PK)</text>
+  <text x="385" y="90" class="attr">id_usuario (FK)</text>
+  <text x="385" y="108" class="attr">contenido (CHECK)</text>
+  <text x="385" y="126" class="attr">fecha</text>
+
+  <rect x="370" y="270" width="240" height="120" class="box" />
+  <text x="385" y="292" class="title">comentarios</text>
+  <text x="385" y="312" class="attr">id_comentario (PK)</text>
+  <text x="385" y="330" class="attr">id_publicacion (FK)</text>
+  <text x="385" y="348" class="attr">id_usuario (FK)</text>
+  <text x="385" y="366" class="attr">contenido, fecha</text>
+
+  <rect x="700" y="150" width="240" height="140" class="box" />
+  <text x="715" y="172" class="title">reacciones</text>
+  <text x="715" y="192" class="attr">id_reaccion (PK)</text>
+  <text x="715" y="210" class="attr">id_publicacion (FK)</text>
+  <text x="715" y="228" class="attr">id_usuario (FK)</text>
+  <text x="715" y="246" class="attr">tipo (CHECK), fecha</text>
+  <text x="715" y="264" class="attr">UNIQUE(id_publicacion, id_usuario)</text>
+
+  <path d="M250,200 C310,200 310,90 370,90" class="rel" />
+  <text x="290" y="140" class="lbl">1 : N</text>
+
+  <path d="M250,240 C310,240 310,330 370,330" class="rel" />
+  <text x="290" y="300" class="lbl">1 : N</text>
+
+  <path d="M610,90 C660,90 660,190 700,190" class="rel" />
+  <text x="630" y="140" class="lbl">1 : N</text>
+
+  <path d="M250,220 C500,220 500,220 700,220" class="rel" stroke-dasharray="4 3" />
+  <text x="460" y="212" class="lbl">1 : N</text>
+</svg>

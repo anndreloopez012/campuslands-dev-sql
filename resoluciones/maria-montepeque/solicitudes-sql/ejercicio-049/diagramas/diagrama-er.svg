@@ -1,0 +1,45 @@
+<svg viewBox="0 0 1050 340" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="20" width="210" height="90" class="box"/>
+  <text x="30" y="40" class="title">usuarios</text>
+  <text x="30" y="58" class="attr">id_usuario PK</text>
+  <text x="30" y="74" class="attr">nombre_usuario UNIQUE</text>
+  <text x="30" y="90" class="attr">email UNIQUE</text>
+
+  <rect x="20" y="230" width="210" height="90" class="box"/>
+  <text x="30" y="250" class="title">jornadas</text>
+  <text x="30" y="268" class="attr">id_jornada PK</text>
+  <text x="30" y="284" class="attr">numero_jornada UNIQUE</text>
+  <text x="30" y="300" class="attr">fecha_jornada, temporada</text>
+
+  <rect x="330" y="20" width="210" height="90" class="box"/>
+  <text x="340" y="40" class="title">clubes</text>
+  <text x="340" y="58" class="attr">id_club PK</text>
+  <text x="340" y="74" class="attr">nombre_club UNIQUE</text>
+  <text x="340" y="90" class="attr">liga</text>
+
+  <rect x="680" y="110" width="300" height="180" class="box"/>
+  <text x="690" y="130" class="title">partidos</text>
+  <text x="690" y="148" class="attr">id_partido PK</text>
+  <text x="690" y="164" class="attr">id_usuario FK, id_jornada FK</text>
+  <text x="690" y="180" class="attr">club_usuario FK, club_rival FK</text>
+  <text x="690" y="196" class="attr">fecha_partido</text>
+  <text x="690" y="212" class="attr">goles_usuario, goles_rival</text>
+  <text x="690" y="228" class="attr">estado, fecha_ultimo_cambio</text>
+
+  <line x1="230" y1="65" x2="680" y2="170"/>
+  <text x="380" y="90" class="rel">1..N</text>
+
+  <line x1="230" y1="275" x2="680" y2="230"/>
+  <text x="400" y="270" class="rel">1..N</text>
+
+  <line x1="540" y1="65" x2="680" y2="190"/>
+  <text x="570" y="90" class="rel">1..N (x2: usuario y rival)</text>
+</svg>

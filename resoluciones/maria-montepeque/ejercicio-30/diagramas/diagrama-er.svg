@@ -1,0 +1,64 @@
+<svg viewBox="0 0 1000 520" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { stroke: #33475b; stroke-width: 1.5; fill: none; }
+    .lbl { font-size: 11px; fill: #12233a; }
+  </style>
+
+  <rect x="30" y="30" width="200" height="90" class="box" />
+  <text x="45" y="52" class="title">rutas</text>
+  <text x="45" y="72" class="attr">id_ruta (PK)</text>
+  <text x="45" y="90" class="attr">nombre (UNIQUE)</text>
+
+  <rect x="700" y="30" width="220" height="90" class="box" />
+  <text x="715" y="52" class="title">trainers</text>
+  <text x="715" y="72" class="attr">id_trainer (PK)</text>
+  <text x="715" y="90" class="attr">correo (UNIQUE)</text>
+
+  <rect x="30" y="200" width="220" height="110" class="box" />
+  <text x="45" y="222" class="title">campers</text>
+  <text x="45" y="242" class="attr">id_camper (PK)</text>
+  <text x="45" y="260" class="attr">id_ruta (FK)</text>
+  <text x="45" y="278" class="attr">correo (UNIQUE), fecha_ingreso</text>
+
+  <rect x="380" y="150" width="240" height="120" class="box" />
+  <text x="395" y="172" class="title">modulos</text>
+  <text x="395" y="192" class="attr">id_modulo (PK)</text>
+  <text x="395" y="210" class="attr">id_ruta (FK), id_trainer (FK)</text>
+  <text x="395" y="228" class="attr">nombre, horas (CHECK)</text>
+
+  <rect x="30" y="380" width="240" height="110" class="box" />
+  <text x="45" y="402" class="title">evaluaciones</text>
+  <text x="45" y="422" class="attr">id_evaluacion (PK)</text>
+  <text x="45" y="440" class="attr">id_camper (FK), id_modulo (FK)</text>
+  <text x="45" y="458" class="attr">nota (CHECK), fecha</text>
+
+  <rect x="380" y="380" width="240" height="110" class="box" />
+  <text x="395" y="402" class="title">asistencias</text>
+  <text x="395" y="422" class="attr">id_asistencia (PK)</text>
+  <text x="395" y="440" class="attr">id_camper (FK), id_modulo (FK)</text>
+  <text x="395" y="458" class="attr">fecha, estado (CHECK)</text>
+
+  <path d="M230,90 C300,90 300,255 250,255" class="rel" />
+  <text x="260" y="150" class="lbl">1 : N</text>
+
+  <path d="M230,80 C320,80 320,180 380,180" class="rel" />
+  <text x="300" y="110" class="lbl">1 : N</text>
+
+  <path d="M700,80 C640,80 640,180 620,180" class="rel" />
+  <text x="650" y="110" class="lbl">1 : N</text>
+
+  <path d="M140,310 V380" class="rel" />
+  <text x="150" y="345" class="lbl">1 : N</text>
+
+  <path d="M450,270 C420,320 420,340 400,380" class="rel" />
+  <text x="430" y="330" class="lbl">1 : N</text>
+
+  <path d="M250,435 H380" class="rel" stroke-dasharray="4 3" />
+  <text x="290" y="427" class="lbl">1 : N</text>
+
+  <path d="M500,270 V380" class="rel" />
+  <text x="510" y="330" class="lbl">1 : N</text>
+</svg>
