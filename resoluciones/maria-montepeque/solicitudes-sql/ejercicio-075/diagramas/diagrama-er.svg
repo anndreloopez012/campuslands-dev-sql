@@ -1,0 +1,59 @@
+<svg viewBox="0 0 1080 400" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="20" width="200" height="90" class="box"/>
+  <text x="30" y="40" class="title">pilotos</text>
+  <text x="30" y="58" class="attr">id_piloto PK</text>
+  <text x="30" y="74" class="attr">nombre_piloto UNIQUE</text>
+  <text x="30" y="90" class="attr">licencia UNIQUE</text>
+
+  <rect x="20" y="270" width="200" height="80" class="box"/>
+  <text x="30" y="290" class="title">pagos</text>
+  <text x="30" y="308" class="attr">id_pago PK</text>
+  <text x="30" y="324" class="attr">id_piloto FK, id_sesion FK</text>
+
+  <rect x="330" y="20" width="220" height="90" class="box"/>
+  <text x="340" y="40" class="title">vehiculos</text>
+  <text x="340" y="58" class="attr">id_vehiculo PK</text>
+  <text x="340" y="74" class="attr">modelo UNIQUE</text>
+  <text x="340" y="90" class="attr">categoria CHECK</text>
+
+  <rect x="330" y="270" width="220" height="80" class="box"/>
+  <text x="340" y="290" class="title">sesiones</text>
+  <text x="340" y="308" class="attr">id_sesion PK</text>
+  <text x="340" y="324" class="attr">fecha_sesion, estado CHECK</text>
+
+  <rect x="680" y="140" width="260" height="130" class="box"/>
+  <text x="690" y="160" class="title">tiempos</text>
+  <text x="690" y="178" class="attr">id_tiempo PK</text>
+  <text x="690" y="194" class="attr">id_sesion FK, id_piloto FK</text>
+  <text x="690" y="210" class="attr">id_vehiculo FK</text>
+  <text x="690" y="226" class="attr">vuelta, tiempo_segundos</text>
+  <text x="690" y="242" class="attr">UNIQUE(sesion,piloto,vuelta)</text>
+
+  <!-- pilotos -> tiempos -->
+  <line x1="220" y1="90" x2="680" y2="200" />
+  <text x="450" y="150" class="rel">1:N</text>
+
+  <!-- pilotos -> pagos -->
+  <line x1="120" y1="110" x2="120" y2="270" />
+  <text x="130" y="190" class="rel">1:N</text>
+
+  <!-- vehiculos -> tiempos -->
+  <line x1="550" y1="90" x2="680" y2="190" />
+  <text x="580" y="140" class="rel">1:N</text>
+
+  <!-- sesiones -> tiempos -->
+  <line x1="550" y1="290" x2="680" y2="240" />
+  <text x="580" y="270" class="rel">1:N</text>
+
+  <!-- sesiones -> pagos -->
+  <line x1="330" y1="310" x2="220" y2="310" />
+  <text x="250" y="300" class="rel">1:N</text>
+</svg>
