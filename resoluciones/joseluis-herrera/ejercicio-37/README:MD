@@ -1,0 +1,73 @@
+# Ejercicio 37: Normalización Biblioteca Multiautor
+
+## Información
+
+- Ejercicio: 37
+- Tema: Normalización de datos
+- Nivel: Intermedio
+- Estudiante: Jose Luis Herrera`
+
+## Descripción
+
+El ejercicio parte de un archivo plano para administrar libros, autores, géneros, usuarios y préstamos.
+
+La estructura original contiene múltiples autores, géneros y préstamos dentro de una misma fila.
+
+La solución transforma el diseño hasta tercera forma normal (3FN).
+
+## Modelo implementado
+Las relaciones principales son:
+
+```text
+AUTORES ─── LIBRO_AUTOR ─── LIBROS
+                               |
+                         LIBRO_GENERO
+                               |
+                            GENEROS
+
+USUARIOS ─── PRESTAMOS ─── DETALLE_PRESTAMO ─── LIBROS
+```
+
+## Consultas
+
+El archivo `dql/consultas.sql` contiene consultas para:
+
+1. Reconstruir una vista similar al archivo original mediante `JOIN`.
+2. Listar libros, autores, géneros y usuarios sin duplicados.
+3. Contar préstamos por estado.
+4. Contar libros por género.
+5. Calcular libros asociados a cada préstamo.
+6. Calcular promedios, mínimos y máximos.
+7. Buscar libros y autores mediante `LIKE`.
+8. Filtrar préstamos por fecha.
+9. Filtrar libros por rango de año.
+10. Obtener el top 5 de libros más prestados.
+11. Obtener el top 5 de usuarios con más préstamos.
+12. Detectar libros sin préstamos.
+13. Detectar autores sin libros asociados.
+14. Generar un reporte de préstamos.
+15. Generar un reporte final de libros con autores, géneros y préstamos.
+
+## Normalización
+
+La estructura se transforma de la siguiente manera:
+
+```text
+Tabla sin normalizar
+        |
+        v
+       1FN
+Valores atómicos y registros individuales
+        |
+        v
+       2FN
+Separación de dependencias parciales
+        |
+        v
+       3FN
+Separación de dependencias transitivas
+```
+
+## Resultado esperado
+
+El modelo permite administrar libros multiautor, múltiples géneros, usuarios y préstamos de forma normalizada, evitando grupos repetidos y datos multivaluados dentro de una misma celda.
