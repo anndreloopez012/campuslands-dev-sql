@@ -1,0 +1,62 @@
+<svg viewBox="0 0 1080 400" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .view { fill: #eef6ee; stroke: #2d6a2d; stroke-width: 1.5; stroke-dasharray: 4 3; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .titleview { font-weight: bold; font-size: 14px; fill: #1d4d1d; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="20" width="220" height="100" class="box"/>
+  <text x="30" y="40" class="title">clientes</text>
+  <text x="30" y="58" class="attr">id_cliente PK</text>
+  <text x="30" y="74" class="attr">licencia UNIQUE</text>
+  <text x="30" y="90" class="attr">telefono UNIQUE</text>
+
+  <rect x="20" y="270" width="220" height="90" class="box"/>
+  <text x="30" y="290" class="title">vehiculos</text>
+  <text x="30" y="308" class="attr">id_vehiculo PK</text>
+  <text x="30" y="324" class="attr">placa UNIQUE</text>
+  <text x="30" y="340" class="attr">categoria, tarifa_diaria</text>
+
+  <rect x="330" y="130" width="230" height="110" class="box"/>
+  <text x="340" y="150" class="title">reservas</text>
+  <text x="340" y="168" class="attr">id_reserva PK</text>
+  <text x="340" y="184" class="attr">id_cliente FK, id_vehiculo FK</text>
+  <text x="340" y="200" class="attr">fecha_inicio, fecha_fin</text>
+  <text x="340" y="216" class="attr">estado CHECK</text>
+
+  <rect x="680" y="20" width="260" height="100" class="box"/>
+  <text x="690" y="40" class="title">pagos</text>
+  <text x="690" y="58" class="attr">id_pago PK</text>
+  <text x="690" y="74" class="attr">id_reserva FK UNIQUE (1:1)</text>
+  <text x="690" y="90" class="attr">monto, metodo_pago</text>
+
+  <rect x="680" y="230" width="260" height="110" class="box"/>
+  <text x="690" y="250" class="title">inspecciones</text>
+  <text x="690" y="268" class="attr">id_inspeccion PK</text>
+  <text x="690" y="284" class="attr">id_reserva FK</text>
+  <text x="690" y="300" class="attr">UNIQUE(reserva, tipo)</text>
+
+  <rect x="330" y="300" width="240" height="70" class="view"/>
+  <text x="340" y="320" class="titleview">vista_resumen_reservas</text>
+  <text x="340" y="336" class="attr">JOIN de las 4 tablas</text>
+
+  <!-- clientes -> reservas -->
+  <line x1="240" y1="90" x2="330" y2="180" />
+  <text x="260" y="150" class="rel">1:N</text>
+
+  <!-- vehiculos -> reservas -->
+  <line x1="240" y1="300" x2="330" y2="220" />
+  <text x="260" y="270" class="rel">1:N</text>
+
+  <!-- reservas -> pagos -->
+  <line x1="560" y1="160" x2="680" y2="80" />
+  <text x="590" y="130" class="rel">1:1</text>
+
+  <!-- reservas -> inspecciones -->
+  <line x1="560" y1="210" x2="680" y2="270" />
+  <text x="590" y="250" class="rel">1:N</text>
+</svg>
