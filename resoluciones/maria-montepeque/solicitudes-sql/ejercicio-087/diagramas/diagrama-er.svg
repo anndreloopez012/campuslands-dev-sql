@@ -1,0 +1,62 @@
+<svg viewBox="0 0 1080 400" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .view { fill: #eef6ee; stroke: #2d6a2d; stroke-width: 1.5; stroke-dasharray: 4 3; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .titleview { font-weight: bold; font-size: 14px; fill: #1d4d1d; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="20" width="200" height="80" class="box"/>
+  <text x="30" y="40" class="title">equipos</text>
+  <text x="30" y="58" class="attr">id_equipo PK</text>
+  <text x="30" y="74" class="attr">nombre_equipo UNIQUE</text>
+
+  <rect x="20" y="270" width="220" height="90" class="box"/>
+  <text x="30" y="290" class="title">jugadores</text>
+  <text x="30" y="308" class="attr">id_jugador PK</text>
+  <text x="30" y="324" class="attr">id_equipo FK</text>
+  <text x="30" y="340" class="attr">UNIQUE(equipo, camiseta)</text>
+
+  <rect x="330" y="20" width="230" height="90" class="box"/>
+  <text x="340" y="40" class="title">partidos</text>
+  <text x="340" y="58" class="attr">id_partido PK</text>
+  <text x="340" y="74" class="attr">id_equipo_local/visitante FK</text>
+  <text x="340" y="90" class="attr">estado CHECK</text>
+
+  <rect x="680" y="20" width="240" height="80" class="box"/>
+  <text x="690" y="40" class="title">goles</text>
+  <text x="690" y="58" class="attr">id_gol PK</text>
+  <text x="690" y="74" class="attr">id_partido FK, id_jugador FK</text>
+
+  <rect x="680" y="150" width="240" height="90" class="box"/>
+  <text x="690" y="170" class="title">tarjetas</text>
+  <text x="690" y="188" class="attr">id_tarjeta PK</text>
+  <text x="690" y="204" class="attr">id_partido FK, id_jugador FK</text>
+
+  <rect x="330" y="270" width="260" height="70" class="view"/>
+  <text x="340" y="290" class="titleview">vista_resumen_partidos</text>
+  <text x="340" y="306" class="attr">doble JOIN a equipos</text>
+
+  <!-- equipos -> jugadores -->
+  <line x1="120" y1="100" x2="120" y2="270" />
+  <text x="130" y="190" class="rel">1:N</text>
+
+  <!-- equipos -> partidos -->
+  <line x1="220" y1="60" x2="330" y2="60" />
+  <text x="240" y="50" class="rel">1:N</text>
+
+  <!-- partidos -> goles -->
+  <line x1="560" y1="60" x2="680" y2="60" />
+  <text x="590" y="50" class="rel">1:N</text>
+
+  <!-- partidos -> tarjetas -->
+  <line x1="560" y1="90" x2="680" y2="190" />
+  <text x="590" y="140" class="rel">1:N</text>
+
+  <!-- jugadores -> goles/tarjetas -->
+  <line x1="240" y1="310" x2="680" y2="60" />
+  <text x="450" y="200" class="rel">1:N</text>
+</svg>
