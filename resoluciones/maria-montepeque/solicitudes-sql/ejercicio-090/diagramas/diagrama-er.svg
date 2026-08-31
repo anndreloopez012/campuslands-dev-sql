@@ -1,0 +1,67 @@
+<svg viewBox="0 0 1080 420" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .view { fill: #eef6ee; stroke: #2d6a2d; stroke-width: 1.5; stroke-dasharray: 4 3; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .titleview { font-weight: bold; font-size: 14px; fill: #1d4d1d; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="20" width="200" height="80" class="box"/>
+  <text x="30" y="40" class="title">tecnicos</text>
+  <text x="30" y="58" class="attr">id_tecnico PK</text>
+  <text x="30" y="74" class="attr">codigo_tecnico UNIQUE</text>
+
+  <rect x="20" y="150" width="200" height="80" class="box"/>
+  <text x="30" y="170" class="title">formulas</text>
+  <text x="30" y="188" class="attr">id_formula PK</text>
+  <text x="30" y="204" class="attr">nombre_formula UNIQUE</text>
+
+  <rect x="330" y="20" width="230" height="90" class="box"/>
+  <text x="340" y="40" class="title">muestras</text>
+  <text x="340" y="58" class="attr">id_muestra PK</text>
+  <text x="340" y="74" class="attr">id_formula FK, id_tecnico FK</text>
+  <text x="340" y="90" class="attr">estado CHECK</text>
+
+  <rect x="330" y="150" width="230" height="90" class="box"/>
+  <text x="340" y="170" class="title">resultados</text>
+  <text x="340" y="188" class="attr">id_resultado PK</text>
+  <text x="340" y="204" class="attr">id_muestra FK UNIQUE (1:1)</text>
+
+  <rect x="680" y="150" width="260" height="100" class="box"/>
+  <text x="690" y="170" class="title">detalle_reactivos</text>
+  <text x="690" y="188" class="attr">id_detalle PK</text>
+  <text x="690" y="204" class="attr">id_muestra FK, id_reactivo FK</text>
+  <text x="690" y="220" class="attr">UNIQUE(muestra, reactivo)</text>
+
+  <rect x="680" y="20" width="220" height="80" class="box"/>
+  <text x="690" y="40" class="title">reactivos</text>
+  <text x="690" y="58" class="attr">id_reactivo PK</text>
+  <text x="690" y="74" class="attr">nombre_reactivo UNIQUE</text>
+
+  <rect x="330" y="280" width="260" height="70" class="view"/>
+  <text x="340" y="300" class="titleview">vista_historial_muestra</text>
+  <text x="340" y="316" class="attr">que paso y cuando paso</text>
+
+  <!-- tecnicos -> muestras -->
+  <line x1="120" y1="100" x2="120" y2="150" />
+  <text x="130" y="130" class="rel">1:N</text>
+
+  <!-- formulas -> muestras -->
+  <line x1="220" y1="150" x2="330" y2="80" />
+  <text x="250" y="120" class="rel">1:N</text>
+
+  <!-- muestras -> resultados -->
+  <line x1="445" y1="110" x2="445" y2="150" />
+  <text x="455" y="135" class="rel">1:1</text>
+
+  <!-- muestras -> detalle -->
+  <line x1="560" y1="195" x2="680" y2="195" />
+  <text x="590" y="185" class="rel">1:N</text>
+
+  <!-- reactivos -> detalle -->
+  <line x1="790" y1="100" x2="800" y2="150" />
+  <text x="800" y="130" class="rel">1:N</text>
+</svg>
