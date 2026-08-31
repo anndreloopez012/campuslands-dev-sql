@@ -1,0 +1,47 @@
+<svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { stroke: #33475b; stroke-width: 1.5; fill: none; }
+    .lbl { font-size: 11px; fill: #12233a; }
+  </style>
+
+  <rect x="30" y="30" width="220" height="80" class="box" />
+  <text x="45" y="52" class="title">clientes</text>
+  <text x="45" y="72" class="attr">id_cliente (PK)</text>
+
+  <rect x="30" y="180" width="220" height="110" class="box" />
+  <text x="45" y="202" class="title">proyectos</text>
+  <text x="45" y="222" class="attr">id_proyecto (PK)</text>
+  <text x="45" y="240" class="attr">id_cliente (FK)</text>
+  <text x="45" y="258" class="attr">tipo (CHECK)</text>
+
+  <rect x="750" y="360" width="220" height="90" class="box" />
+  <text x="765" y="382" class="title">entregas</text>
+  <text x="765" y="402" class="attr">id_entrega (PK)</text>
+  <text x="765" y="420" class="attr">id_proyecto (FK), version</text>
+
+  <rect x="380" y="180" width="240" height="110" class="box" />
+  <text x="395" y="202" class="title">renders</text>
+  <text x="395" y="222" class="attr">id_render (PK)</text>
+  <text x="395" y="240" class="attr">id_proyecto (FK)</text>
+  <text x="395" y="258" class="attr">estado (CHECK)</text>
+
+  <rect x="380" y="390" width="240" height="90" class="box" />
+  <text x="395" y="412" class="title">revisiones (historico)</text>
+  <text x="395" y="432" class="attr">id_revision (PK)</text>
+  <text x="395" y="450" class="attr">id_render (FK), aprobado (CHECK)</text>
+
+  <path d="M140,110 V180" class="rel" />
+  <text x="150" y="150" class="lbl">1 : N</text>
+
+  <path d="M250,240 H380" class="rel" />
+  <text x="290" y="230" class="lbl">1 : N</text>
+
+  <path d="M500,290 V390" class="rel" />
+  <text x="510" y="345" class="lbl">1 : N (nunca se borra)</text>
+
+  <path d="M250,270 C500,320 750,360 750,400" class="rel" />
+  <text x="600" y="330" class="lbl">1 : N</text>
+</svg>
