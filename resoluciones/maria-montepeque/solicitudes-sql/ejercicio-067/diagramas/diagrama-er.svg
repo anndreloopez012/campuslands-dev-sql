@@ -1,0 +1,50 @@
+<svg viewBox="0 0 1000 480" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { stroke: #33475b; stroke-width: 1.5; fill: none; }
+    .lbl { font-size: 11px; fill: #12233a; }
+  </style>
+
+  <rect x="30" y="30" width="220" height="80" class="box" />
+  <text x="45" y="52" class="title">artistas</text>
+  <text x="45" y="72" class="attr">id_artista (PK)</text>
+
+  <rect x="30" y="180" width="220" height="120" class="box" />
+  <text x="45" y="202" class="title">canciones</text>
+  <text x="45" y="222" class="attr">id_cancion (PK)</text>
+  <text x="45" y="240" class="attr">id_artista (FK)</text>
+  <text x="45" y="258" class="attr">duracion_segundos (CHECK)</text>
+  <text x="45" y="276" class="attr">genero (CHECK)</text>
+
+  <rect x="750" y="30" width="220" height="100" class="box" />
+  <text x="765" y="52" class="title">usuarios</text>
+  <text x="765" y="72" class="attr">id_usuario (PK)</text>
+  <text x="765" y="90" class="attr">email (UNIQUE)</text>
+  <text x="765" y="108" class="attr">plan (CHECK, DEFAULT)</text>
+
+  <rect x="750" y="360" width="220" height="100" class="box" />
+  <text x="765" y="382" class="title">playlists</text>
+  <text x="765" y="402" class="attr">id_playlist (PK)</text>
+  <text x="765" y="420" class="attr">id_usuario (FK)</text>
+  <text x="765" y="438" class="attr">estado (CHECK, DEFAULT)</text>
+
+  <rect x="380" y="360" width="240" height="100" class="box" />
+  <text x="395" y="382" class="title">reproducciones</text>
+  <text x="395" y="402" class="attr">id_reproduccion (PK)</text>
+  <text x="395" y="420" class="attr">id_usuario (FK), id_cancion (FK)</text>
+  <text x="395" y="438" class="attr">fecha_reproduccion</text>
+
+  <path d="M140,110 V180" class="rel" />
+  <text x="150" y="150" class="lbl">1 : N</text>
+
+  <path d="M250,240 C500,240 500,400 380,410" class="rel" />
+  <text x="450" y="300" class="lbl">1 : N</text>
+
+  <path d="M750,410 H620" class="rel" />
+  <text x="670" y="400" class="lbl">1 : N</text>
+
+  <path d="M860,130 C860,300 620,395 620,405" class="rel" />
+  <text x="820" y="250" class="lbl">1 : N</text>
+</svg>
