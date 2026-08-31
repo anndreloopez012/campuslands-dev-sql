@@ -1,0 +1,55 @@
+<svg viewBox="0 0 1080 380" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="20" width="200" height="90" class="box"/>
+  <text x="30" y="40" class="title">clanes</text>
+  <text x="30" y="58" class="attr">id_clan PK</text>
+  <text x="30" y="74" class="attr">nombre_clan UNIQUE</text>
+  <text x="30" y="90" class="attr">region</text>
+
+  <rect x="20" y="250" width="200" height="80" class="box"/>
+  <text x="30" y="270" class="title">jugadores</text>
+  <text x="30" y="288" class="attr">id_jugador PK</text>
+  <text x="30" y="304" class="attr">nickname UNIQUE, id_clan FK</text>
+
+  <rect x="330" y="20" width="200" height="80" class="box"/>
+  <text x="340" y="40" class="title">mapas</text>
+  <text x="340" y="58" class="attr">id_mapa PK</text>
+  <text x="340" y="74" class="attr">nombre_mapa UNIQUE, modo_juego</text>
+
+  <rect x="330" y="230" width="230" height="120" class="box"/>
+  <text x="340" y="250" class="title">scrims</text>
+  <text x="340" y="268" class="attr">id_scrim PK</text>
+  <text x="340" y="284" class="attr">id_clan_local FK</text>
+  <text x="340" y="300" class="attr">id_clan_visitante FK, id_mapa FK</text>
+  <text x="340" y="316" class="attr">estado CHECK</text>
+
+  <rect x="680" y="230" width="260" height="120" class="box"/>
+  <text x="690" y="250" class="title">resultados</text>
+  <text x="690" y="268" class="attr">id_resultado PK</text>
+  <text x="690" y="284" class="attr">id_scrim FK UNIQUE (1:1)</text>
+  <text x="690" y="300" class="attr">id_clan_ganador FK</text>
+  <text x="690" y="316" class="attr">marcador_local, marcador_visitante</text>
+
+  <!-- clanes -> jugadores -->
+  <line x1="120" y1="110" x2="120" y2="250" />
+  <text x="130" y="180" class="rel">1:N</text>
+
+  <!-- clanes -> scrims -->
+  <line x1="220" y1="90" x2="330" y2="270" />
+  <text x="250" y="180" class="rel">1:N</text>
+
+  <!-- mapas -> scrims -->
+  <line x1="430" y1="100" x2="440" y2="230" />
+  <text x="440" y="170" class="rel">1:N</text>
+
+  <!-- scrims -> resultados -->
+  <line x1="560" y1="290" x2="680" y2="290" />
+  <text x="590" y="280" class="rel">1:1</text>
+</svg>
