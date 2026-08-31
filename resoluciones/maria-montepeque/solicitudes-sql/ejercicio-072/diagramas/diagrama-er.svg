@@ -1,0 +1,62 @@
+<svg viewBox="0 0 1080 400" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="20" width="200" height="90" class="box"/>
+  <text x="30" y="40" class="title">equipos</text>
+  <text x="30" y="58" class="attr">id_equipo PK</text>
+  <text x="30" y="74" class="attr">nombre_equipo UNIQUE</text>
+  <text x="30" y="90" class="attr">region</text>
+
+  <rect x="20" y="270" width="200" height="100" class="box"/>
+  <text x="30" y="290" class="title">jugadores</text>
+  <text x="30" y="308" class="attr">id_jugador PK</text>
+  <text x="30" y="324" class="attr">nickname UNIQUE</text>
+  <text x="30" y="340" class="attr">id_equipo FK, rol CHECK</text>
+
+  <rect x="330" y="20" width="230" height="120" class="box"/>
+  <text x="340" y="40" class="title">partidas</text>
+  <text x="340" y="58" class="attr">id_partida PK</text>
+  <text x="340" y="74" class="attr">id_equipo_local FK</text>
+  <text x="340" y="90" class="attr">id_equipo_visitante FK</text>
+  <text x="340" y="106" class="attr">estado CHECK, id_equipo_ganador FK</text>
+
+  <rect x="330" y="280" width="220" height="90" class="box"/>
+  <text x="340" y="300" class="title">heroes</text>
+  <text x="340" y="318" class="attr">id_heroe PK</text>
+  <text x="340" y="334" class="attr">nombre_heroe UNIQUE</text>
+  <text x="340" y="350" class="attr">rol_principal</text>
+
+  <rect x="680" y="150" width="260" height="140" class="box"/>
+  <text x="690" y="170" class="title">estadisticas</text>
+  <text x="690" y="188" class="attr">id_estadistica PK</text>
+  <text x="690" y="204" class="attr">id_partida FK, id_jugador FK</text>
+  <text x="690" y="220" class="attr">id_heroe FK</text>
+  <text x="690" y="236" class="attr">kills, muertes, asistencias</text>
+  <text x="690" y="252" class="attr">oro_conseguido, UNIQUE(partida,jugador)</text>
+
+  <!-- equipos -> jugadores -->
+  <line x1="120" y1="110" x2="120" y2="270" />
+  <text x="130" y="190" class="rel">1:N</text>
+
+  <!-- equipos -> partidas -->
+  <line x1="220" y1="70" x2="330" y2="80" />
+  <text x="230" y="65" class="rel">1:N</text>
+
+  <!-- partidas -> estadisticas -->
+  <line x1="560" y1="100" x2="680" y2="200" />
+  <text x="590" y="150" class="rel">1:N</text>
+
+  <!-- jugadores -> estadisticas -->
+  <line x1="220" y1="320" x2="680" y2="260" />
+  <text x="450" y="300" class="rel">1:N</text>
+
+  <!-- heroes -> estadisticas -->
+  <line x1="550" y1="320" x2="680" y2="270" />
+  <text x="560" y="310" class="rel">1:N</text>
+</svg>
