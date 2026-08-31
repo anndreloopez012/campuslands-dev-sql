@@ -1,0 +1,52 @@
+<svg viewBox="0 0 1000 520" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { stroke: #33475b; stroke-width: 1.5; fill: none; }
+    .lbl { font-size: 11px; fill: #12233a; }
+  </style>
+
+  <rect x="30" y="30" width="220" height="90" class="box" />
+  <text x="45" y="52" class="title">clientes</text>
+  <text x="45" y="72" class="attr">id_cliente (PK)</text>
+  <text x="45" y="90" class="attr">telefono (UNIQUE)</text>
+
+  <rect x="30" y="180" width="220" height="100" class="box" />
+  <text x="45" y="202" class="title">vehiculos</text>
+  <text x="45" y="222" class="attr">id_vehiculo (PK)</text>
+  <text x="45" y="240" class="attr">id_cliente (FK)</text>
+  <text x="45" y="258" class="attr">placa (UNIQUE), marca, modelo</text>
+
+  <rect x="30" y="340" width="220" height="110" class="box" />
+  <text x="45" y="362" class="title">diagnosticos</text>
+  <text x="45" y="382" class="attr">id_diagnostico (PK)</text>
+  <text x="45" y="400" class="attr">id_vehiculo (FK)</text>
+  <text x="45" y="418" class="attr">descripcion, fecha</text>
+  <text x="45" y="436" class="attr">estado (CHECK)</text>
+
+  <rect x="380" y="340" width="240" height="110" class="box" />
+  <text x="395" y="362" class="title">reparaciones</text>
+  <text x="395" y="382" class="attr">id_reparacion (PK)</text>
+  <text x="395" y="400" class="attr">id_diagnostico (FK, UNIQUE)</text>
+  <text x="395" y="418" class="attr">descripcion_trabajo</text>
+  <text x="395" y="436" class="attr">costo_mano_obra (CHECK)</text>
+
+  <rect x="750" y="340" width="220" height="100" class="box" />
+  <text x="765" y="362" class="title">repuestos</text>
+  <text x="765" y="382" class="attr">id_repuesto (PK)</text>
+  <text x="765" y="400" class="attr">id_reparacion (FK)</text>
+  <text x="765" y="418" class="attr">cantidad, precio_unitario (CHECK)</text>
+
+  <path d="M140,120 V180" class="rel" />
+  <text x="150" y="155" class="lbl">1 : N</text>
+
+  <path d="M140,280 V340" class="rel" />
+  <text x="150" y="315" class="lbl">1 : N</text>
+
+  <path d="M250,395 H380" class="rel" />
+  <text x="290" y="385" class="lbl">1 : 1</text>
+
+  <path d="M620,395 H750" class="rel" />
+  <text x="660" y="385" class="lbl">1 : N</text>
+</svg>
