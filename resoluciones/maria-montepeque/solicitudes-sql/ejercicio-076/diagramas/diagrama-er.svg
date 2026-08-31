@@ -1,0 +1,56 @@
+<svg viewBox="0 0 1080 380" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="20" width="200" height="90" class="box"/>
+  <text x="30" y="40" class="title">clientes</text>
+  <text x="30" y="58" class="attr">id_cliente PK</text>
+  <text x="30" y="74" class="attr">nombre_cliente</text>
+  <text x="30" y="90" class="attr">carnet_estudiante UNIQUE</text>
+
+  <rect x="20" y="250" width="200" height="90" class="box"/>
+  <text x="30" y="270" class="title">productos</text>
+  <text x="30" y="288" class="attr">id_producto PK</text>
+  <text x="30" y="304" class="attr">nombre_producto UNIQUE</text>
+  <text x="30" y="320" class="attr">precio, categoria CHECK</text>
+
+  <rect x="330" y="20" width="220" height="90" class="box"/>
+  <text x="340" y="40" class="title">ventas</text>
+  <text x="340" y="58" class="attr">id_venta PK</text>
+  <text x="340" y="74" class="attr">id_cliente FK</text>
+  <text x="340" y="90" class="attr">estado CHECK</text>
+
+  <rect x="330" y="230" width="240" height="120" class="box"/>
+  <text x="340" y="250" class="title">detalle_ventas</text>
+  <text x="340" y="268" class="attr">id_detalle PK</text>
+  <text x="340" y="284" class="attr">id_venta FK, id_producto FK</text>
+  <text x="340" y="300" class="attr">cantidad, precio_unitario</text>
+  <text x="340" y="316" class="attr">UNIQUE(venta, producto)</text>
+
+  <rect x="680" y="20" width="240" height="100" class="box"/>
+  <text x="690" y="40" class="title">pagos</text>
+  <text x="690" y="58" class="attr">id_pago PK</text>
+  <text x="690" y="74" class="attr">id_venta FK UNIQUE (1:1)</text>
+  <text x="690" y="90" class="attr">monto, metodo_pago CHECK</text>
+
+  <!-- clientes -> ventas -->
+  <line x1="220" y1="70" x2="330" y2="70" />
+  <text x="240" y="60" class="rel">1:N</text>
+
+  <!-- productos -> detalle_ventas -->
+  <line x1="220" y1="300" x2="330" y2="300" />
+  <text x="240" y="290" class="rel">1:N</text>
+
+  <!-- ventas -> detalle_ventas -->
+  <line x1="440" y1="110" x2="440" y2="230" />
+  <text x="450" y="180" class="rel">1:N</text>
+
+  <!-- ventas -> pagos -->
+  <line x1="550" y1="60" x2="680" y2="60" />
+  <text x="590" y="50" class="rel">1:1</text>
+</svg>
