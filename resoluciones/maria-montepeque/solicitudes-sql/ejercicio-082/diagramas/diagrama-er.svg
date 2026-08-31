@@ -1,0 +1,61 @@
+<svg viewBox="0 0 1080 400" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .view { fill: #eef6ee; stroke: #2d6a2d; stroke-width: 1.5; stroke-dasharray: 4 3; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .titleview { font-weight: bold; font-size: 14px; fill: #1d4d1d; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { font-size: 11px; fill: #556; }
+    line { stroke: #33475b; stroke-width: 1.5; }
+  </style>
+
+  <rect x="20" y="20" width="200" height="90" class="box"/>
+  <text x="30" y="40" class="title">alumnos</text>
+  <text x="30" y="58" class="attr">id_alumno PK</text>
+  <text x="30" y="74" class="attr">nombre_alumno</text>
+  <text x="30" y="90" class="attr">telefono UNIQUE</text>
+
+  <rect x="20" y="270" width="220" height="90" class="box"/>
+  <text x="30" y="290" class="title">entrenadores</text>
+  <text x="30" y="308" class="attr">id_entrenador PK</text>
+  <text x="30" y="324" class="attr">nombre_entrenador UNIQUE</text>
+  <text x="30" y="340" class="attr">especialidad</text>
+
+  <rect x="330" y="270" width="240" height="110" class="box"/>
+  <text x="340" y="290" class="title">asistencias</text>
+  <text x="340" y="308" class="attr">id_asistencia PK</text>
+  <text x="340" y="324" class="attr">id_alumno FK, id_entrenador FK</text>
+  <text x="340" y="340" class="attr">UNIQUE(alumno,entrenador,fecha)</text>
+
+  <rect x="330" y="20" width="220" height="90" class="box"/>
+  <text x="340" y="40" class="title">planes</text>
+  <text x="340" y="58" class="attr">id_plan PK</text>
+  <text x="340" y="74" class="attr">nombre_plan UNIQUE</text>
+  <text x="340" y="90" class="attr">precio_mensual</text>
+
+  <rect x="680" y="130" width="240" height="100" class="box"/>
+  <text x="690" y="150" class="title">pagos</text>
+  <text x="690" y="168" class="attr">id_pago PK</text>
+  <text x="690" y="184" class="attr">id_alumno FK, id_plan FK</text>
+  <text x="690" y="200" class="attr">monto, estado CHECK</text>
+
+  <rect x="680" y="270" width="260" height="70" class="view"/>
+  <text x="690" y="290" class="titleview">vista_pagos_alumnos</text>
+  <text x="690" y="306" class="attr">JOIN pagos+alumnos+planes</text>
+
+  <!-- alumnos -> asistencias -->
+  <line x1="120" y1="110" x2="400" y2="270" />
+  <text x="250" y="200" class="rel">1:N</text>
+
+  <!-- entrenadores -> asistencias -->
+  <line x1="240" y1="320" x2="330" y2="320" />
+  <text x="260" y="310" class="rel">1:N</text>
+
+  <!-- alumnos -> pagos -->
+  <line x1="220" y1="70" x2="680" y2="170" />
+  <text x="450" y="110" class="rel">1:N</text>
+
+  <!-- planes -> pagos -->
+  <line x1="550" y1="70" x2="680" y2="160" />
+  <text x="590" y="110" class="rel">1:N</text>
+</svg>
