@@ -1,0 +1,58 @@
+<svg viewBox="0 0 1000 480" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <style>
+    .box { fill: #f5f7fa; stroke: #33475b; stroke-width: 1.5; }
+    .title { font-weight: bold; font-size: 14px; fill: #12233a; }
+    .attr { font-size: 12px; fill: #33475b; }
+    .rel { stroke: #33475b; stroke-width: 1.5; fill: none; }
+    .lbl { font-size: 11px; fill: #12233a; }
+  </style>
+
+  <rect x="400" y="20" width="220" height="90" class="box" />
+  <text x="415" y="42" class="title">equipos</text>
+  <text x="415" y="62" class="attr">id_equipo (PK)</text>
+  <text x="415" y="80" class="attr">nombre (UNIQUE)</text>
+
+  <rect x="60" y="180" width="230" height="110" class="box" />
+  <text x="75" y="202" class="title">jugadores</text>
+  <text x="75" y="222" class="attr">id_jugador (PK)</text>
+  <text x="75" y="240" class="attr">id_equipo (FK)</text>
+  <text x="75" y="258" class="attr">posicion, dorsal</text>
+  <text x="75" y="276" class="attr">UNIQUE(id_equipo, dorsal)</text>
+
+  <rect x="710" y="180" width="240" height="110" class="box" />
+  <text x="725" y="202" class="title">partidos</text>
+  <text x="725" y="222" class="attr">id_partido (PK)</text>
+  <text x="725" y="240" class="attr">id_equipo_local (FK)</text>
+  <text x="725" y="258" class="attr">id_equipo_visitante (FK)</text>
+  <text x="725" y="276" class="attr">fecha_partido, estado</text>
+
+  <rect x="380" y="360" width="220" height="100" class="box" />
+  <text x="395" y="382" class="title">goles</text>
+  <text x="395" y="402" class="attr">id_gol (PK)</text>
+  <text x="395" y="420" class="attr">id_partido (FK), id_jugador (FK)</text>
+  <text x="395" y="438" class="attr">minuto (CHECK)</text>
+
+  <rect x="30" y="360" width="220" height="100" class="box" />
+  <text x="45" y="382" class="title">tarjetas</text>
+  <text x="45" y="402" class="attr">id_tarjeta (PK)</text>
+  <text x="45" y="420" class="attr">id_partido (FK), id_jugador (FK)</text>
+  <text x="45" y="438" class="attr">tipo (CHECK), minuto (CHECK)</text>
+
+  <path d="M400,65 C250,65 250,150 175,180" class="rel" />
+  <text x="260" y="130" class="lbl">1 : N</text>
+
+  <path d="M620,65 C780,65 780,150 830,180" class="rel" />
+  <text x="700" y="130" class="lbl">1 : N (local/visitante)</text>
+
+  <path d="M175,290 V330 C175,350 350,380 380,395" class="rel" />
+  <text x="230" y="330" class="lbl">1 : N</text>
+
+  <path d="M175,290 V400" class="rel" />
+  <text x="150" y="330" class="lbl">1 : N</text>
+
+  <path d="M830,290 C830,330 600,395 600,405" class="rel" />
+  <text x="700" y="330" class="lbl">1 : N</text>
+
+  <path d="M830,290 C830,340 260,400 260,405" class="rel" />
+  <text x="650" y="360" class="lbl">1 : N</text>
+</svg>
