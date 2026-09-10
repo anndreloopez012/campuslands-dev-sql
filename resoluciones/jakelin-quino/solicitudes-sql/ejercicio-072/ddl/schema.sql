@@ -1,0 +1,28 @@
+PRAGMA foreign_keys = ON;
+
+-- Ejercicio 072: Liga MOBA
+DROP TABLE IF EXISTS partidas;
+DROP TABLE IF EXISTS jugadores;
+DROP TABLE IF EXISTS equipos;
+
+CREATE TABLE equipos (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nombre TEXT NOT NULL UNIQUE,
+	region TEXT NOT NULL
+);
+
+CREATE TABLE jugadores (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	equipo_id INTEGER NOT NULL,
+	nickname TEXT NOT NULL UNIQUE,
+	rol TEXT NOT NULL,
+	FOREIGN KEY (equipo_id) REFERENCES equipos(id)
+);
+
+CREATE TABLE partidas (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	jugador_id INTEGER NOT NULL,
+	heroe TEXT NOT NULL,
+	kda_ratio REAL NOT NULL CHECK (kda_ratio >= 0),
+	FOREIGN KEY (jugador_id) REFERENCES jugadores(id)
+);
